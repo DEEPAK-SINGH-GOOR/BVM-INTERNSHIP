@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        header,footer{
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        nav{
+            background: #313131;
+            display: flex;
+            justify-content: center;
+        }
+        nav a{
+            color: white;
+            text-decoration:none;
+            /* top/bottom  left/right  */
+            padding: 15px 20px;
+        }
+        nav a:hover{
+            background: gray;
+        }
+        main{
+            padding:40px;
+            text-align: center;
+        }
+        @media (max-width:600px){
+            nav{
+                flex-direction: column;
+                /* text-align: right; */
+            }
+            main{
+                padding: 20px;
+            }
+        }
+    </style>
+    <header>
+        Home Page
+    </header>
+    <nav>
+        <a href="">Home</a>
+        <a href="">About</a>
+        <a href="">Service</a>
+        <a href="">Contact</a>
+    </nav>
+    <main>
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptatibus blanditiis dolorum iste adipisci, magni eos possimus. Accusantium architecto nobis eos, necessitatibus tenetur eius fugit suscipit aperiam unde, explicabo natus.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos sapiente consectetur atque corporis? Tempore praesentium, iste obcaecati quidem doloribus omnis quibusdam. Nemo itaque sint, nisi vero sed iste fuga provident.</p>
+    </main>
+    <footer>Footer</footer>
+</body>
+</html>

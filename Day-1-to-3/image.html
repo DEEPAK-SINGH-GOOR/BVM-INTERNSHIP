@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Multiple Images</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+    <!-- FileUploadWithPreview CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.css"
+        rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-file-container__image-clear {
+            display: inline-block;
+            margin-top: 10px;
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .custom-file-container__image-clear:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Upload Multiple Images</h3>
+        <!-- 
+             custom-file-container                                  : Root Upload Components Wrapper
+             custom-file-container__custom-file                     : holds the file input and its custom styling
+             custom-file-container__custom-file__custom-file-input  : The actual file input (type="file"
+             custom-file-container__custom-file__custom-file-control: Display fileName or Selection Status
+             custom-file-container__image-clear                     : Automatically Show Image Thumbnails
+             custom-file-container__image-preview                   : Built-in Clear / Reset Image list Btn
+        -->
+        <div class="custom-file-container" data-upload-id="myUpload">
+            <label class="custom-file-container__custom-file">
+                <input type="file" class="custom-file-container__custom-file__custom-file-input" multiple
+                    accept="image/*" />
+                <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                <span class="custom-file-container__custom-file__custom-file-control"></span>
+            </label>
+
+            <span class="custom-file-container__image-clear">Clear Images</span>
+
+            <div class="custom-file-container__image-preview"></div>
+        </div>
+    </div>
+
+    <!-- FileUploadWithPreview JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.js"></script>
+    <script>
+        const upload = new FileUploadWithPreview('myUpload');
+    </script>
+</body>
+
+</html>

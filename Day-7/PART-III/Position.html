@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+          height: 2000px; /* for scroll testing */
+          font-family: Arial;
+        }
+    
+        .box {
+          width: 200px;
+          height: 100px;
+          padding: 10px;
+          color: white;
+          margin: 20px;
+        }
+    
+        .static {
+          background: gray;
+          position: static;
+        }
+    
+        .relative {
+          background: blue;
+          position: relative;
+          top: 20px;
+          left: 20px;
+        }
+    
+        .absolute-container {
+          position: relative;
+          height: 150px;
+          background: #ddd;
+          margin: 20px;
+        }
+    
+        .absolute {
+          background: green;
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+    
+        .fixed {
+          background: red;
+          position: fixed;
+          bottom: 10px;
+          right: 10px;
+        }
+    
+        .sticky {
+          background: purple;
+          position: sticky;
+          top: 0;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <div class="box static">Static (Default)</div>
+    
+      <div class="box relative">Relative (Shifted)</div>
+    
+      <div class="absolute-container">
+        <div class="box absolute">Absolute (Inside Container)</div>
+      </div>
+    
+      <div class="box fixed">Fixed (Always Visible)</div>
+    
+      <div style="height: 600px;"></div> <!-- Spacer for scroll -->
+    
+      <div class="box sticky">Sticky (Sticks on Scroll)</div>
+    
+</body>
+</html>

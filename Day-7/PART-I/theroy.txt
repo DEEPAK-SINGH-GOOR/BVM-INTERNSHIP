@@ -1,0 +1,16 @@
+1)What is HTML ?
+Ans:HTML (HyperText Markup Language) is the standard markup language used to create and design 
+the structure of web pages
+
+2) HTML Tags Every XHTML Web Page Must Have
+Ans: (i)<!DOCTYPE html> (ii) <html> (iii) <head> (iv) <title> (v) <body>
+
+3) The Scoop on HTML, XML, XHTML, and HTML5
+Ans:
+type                Description
+(i) HTML            (HyperText Markup Language), Used to build web page content
+(ii)XHTML           (Extensible HyperText Markup Language), Stricter version of HTML that follows XML rules
+(iii)XML            Used for data storage and transport
+(iv) HTML5          Latest HTML version with support for media, semantic elements, etc.
+
+
