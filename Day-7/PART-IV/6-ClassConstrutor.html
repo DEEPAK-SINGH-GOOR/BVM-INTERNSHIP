@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class & Constructor</title>
+</head>
+
+<body>
+    <h1>Hello</h1>
+</body>
+<script>
+    class ToyotaCar {
+        constructor(brand, milage) {
+            console.log("Constructor Adding");
+            this.brandName = brand
+            this.carMilage = milage
+        }
+        start() {
+            console.log("Start Car");
+        }
+        stop() {
+            console.log("Stop Car");
+        }
+    }
+    let fortuner = new ToyotaCar("Toyata", 20);
+    let Audi = new ToyotaCar("Audi", 10);
+
+    // try {
+    //     // Code 
+    // } catch (error) {
+    //     // error 
+    // } 
+
+</script>
+
+</html>

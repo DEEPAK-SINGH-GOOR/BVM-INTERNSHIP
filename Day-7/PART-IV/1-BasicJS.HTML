@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Concept Of JavaScript</title>
+</head>
+
+<body>
+    <!-- 
+    Data Types & Variables
+    Primitive Types:
+    String, Number, Boolean, Undefined, Null, BigInt, Symbol
+
+    Non-Primitive Types
+    Object → includes Arrays, Functions, etc.
+    Variable Declaration
+    var → Function-scoped
+
+    let → Block-scoped, reassignable
+
+    const → Block-scoped, not reassignable
+
+    2 Operators
+    Arithmetic: +, -, , /, %, *
+    Comparison: ==, ===, !=, !==, >, <,>=, <= Logical: &&, ||, ! Ternary: condition ? trueValue : falseValue js Copy
+            code let x=5 + 3; let check=(x===8); // true let result=(x> 5) ? "Yes" : "No";
+
+            3 Functions
+            Function Declaration:
+            function greet() {
+            return "Hello!";
+            }
+
+            Function Expression:
+            const greet = function() {
+            return "Hello!";
+            }
+
+            Arrow Function:
+            const greet = () => "Hello!";
+
+            IIFE (Immediately Invoked Function Expression):
+            (function() {
+            console.log("IIFE executed");
+            })();
+
+            4 Scope & Hoisting
+            Scope Types:
+
+            Global
+            Function (var)
+            Block (let, const)
+
+            Hoisting:
+            var declarations and function declarations are hoisted.
+            console.log(a); // undefined
+            var a = 10;
+
+            5 Objects & Arrays
+            Object Creation:
+            const person = { name: "Deepak", age: 19 };
+
+            Property Access:
+            person.name;
+            person["age"];
+
+            Array Methods:
+            map() → returns new array
+            filter() → filters values
+            reduce() → accumulates to a single value
+            forEach(), find(), some(), every()
+
+            6 ES6+ Features
+            Template Literals:
+            const name = "Deepak";
+            console.log(Hello, ${name}!);
+
+            Destructuring:
+            const { name, age } = person;
+
+            Spread / Rest Operator:
+            const arr = [1, 2, 3];
+            const newArr = [...arr, 4]; // [1, 2, 3, 4]
+
+            function sum(...nums) {
+            return nums.reduce((a, b) => a + b, 0);
+            }
+
+
+            Promises & Async/Await:
+            const fetchData = () => {
+            return new Promise((resolve) => {
+            setTimeout(() => resolve("Data"), 1000);
+            });
+            };
+
+            async function getData() {
+            const data = await fetchData();
+            console.log(data);
+            }
+
+            Modules:
+            // export
+            export const greet = () => "Hi";
+            // import
+            import { greet } from './greet.js';
+
+            7 Asynchronous JavaScript
+            Evolution: Callbacks → Promises → Async/Await
+            Event Loop: Executes sync → microtasks → macrotasks
+            Microtasks: Promises, MutationObserver
+            Macrotasks: setTimeout, setInterval
+
+            8 DOM Manipulation
+
+            Select Elements:
+            document.querySelector("h1");
+            document.getElementById("btn");
+
+            Change Content:
+            element.innerText = "New Text";
+            element.innerHTML = "<b>Bold</b>";
+
+            9 Event Listeners:
+            document.getElementById("btn").addEventListener("click", () => {
+            alert("Clicked!");
+            });
+
+            10) Error Handling
+            try-catch block:
+            try {
+            throw new Error("Something went wrong");
+            } catch (error) {
+            console.log(error.message); // Output: Something went wrong
+            }
+            * JavaScript Syntax Rules 
+            1 Case Senstivity (Camel case)
+            2 Comments (single line // multiline line /**/)
+            3 Semicolons (;)
+            4 WhiteSpace  proper Spaceing
+            5 Indentation (format Document)
+            6 Naming Convention
+             -->
+</body>
+
+</html>

@@ -15,7 +15,6 @@ Git : Command Lines
 (VI)  git add Desktop/(for select folder) 
 (VII) git clone https://github.com/DEEPAK-SINGH-BVM/BVM-INTERNSHIP.git (For Clone)
 
-
 2) What is GitHub ?
 Ans :GitHub is cloud base Hosting Service for Git Repository 
 Command Lines : 
@@ -46,7 +45,7 @@ For push after changes
 (iii) git push (git push --set-upstream origin main)
 
 
-For Colabrate Use'
+For Colabrate Use with Team 
 (i)   git pull for use download change on cloud  
 (ii)  git branch is use for create sperate working branch 
 (iii) git Merge origin changes to main branch

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM (Document Object Model)</title>
+</head>
+
+<body>
+    <button id="title"><h1>Click</h1></button>
+    <!-- 
+    1) What is Dom
+    DOM stands for Document Object Model. It’s a tree-like structure created by the browser when it loads an HTML page, 
+    and JavaScript uses it to interact with and change the content, structure, or style of a web page dynamically.
+
+    2) DOM Structure Example
+     <html>
+        <body>
+            <head>
+                <title>DOM</title>
+            </head>
+            <body>
+                <p>Document Object Model</p>
+            </body>
+        </body>
+    </html>
+
+    3) Commom DOM Method In JavaScript
+    (i) getElementById
+    (ii) getElementByClassName
+    (iii) getElementByTagName
+    (iv) querySelector 
+    (v) querySelectorAll('div') select all div element Present in HTML file
+
+    4) DOM Manipulation Examples
+    (i) change Text = document.getElementById("title").innerText = "Hello, Deepak!";
+    (ii) change Style = document.getElementById("title").style.color = "blue";
+    (iii) change HTML = document.getElementById("title").innerHTML = "<h1>Welcome</h1>";
+    (iv) Add Event Listen =  document.getElementById("title").addEventListener("click",function(){
+        alert("Good Morning")
+    })
+
+     ● Working with DOM Nodes
+    Access Elements By(Id , Class , tag)
+    createElement , appendchild , removeChild
+
+    ● Creating Positionable Elements (Layers)
+    Use CSS & JS to create Movable Layers
+    style (position , left , top)
+
+    ● Hiding and Showing Objects
+    style.display , style.visibility
+
+    ● Modifying Text Within a Page
+    innerText , innerHTML , textContent
+
+    ● Adding Text to a Page
+    creating new Elements(createElement)
+    Creating & appending text (createTextNode)
+    -->
+    
+</body>
+<script>
+
+    document.getElementById("title").innerText = "Hello, Deepak!";
+    document.getElementById("title").style.color = "blue";
+    document.getElementById("title").innerHTML = "<h1>Welcome</h1>";
+    document.getElementById("title").addEventListener("click",function(){
+        alert("Good Morning")
+    })
+</script>
+
+</html>
