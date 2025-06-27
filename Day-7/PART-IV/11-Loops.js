@@ -130,4 +130,15 @@ for (let i in details) {
 console.log(sum);
 
 FOR OF LOOP [Array & String] HTML , CSS , JS , PYTHON
-*/ 
+let skills = ["HTML", "CSS", "JAVASCRIPT", "PYTHON"];
+for (let skill of skills) {
+  console.log(skill);
+}
+
+let language = "Javascript";
+
+for (let char of language) {
+  console.log(char);
+} 
+// Output J a v a s c r i p t 
+*/
