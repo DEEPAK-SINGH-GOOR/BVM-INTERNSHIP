@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="alert('Page Loaded')" onunload="alert('Page Closed')">
+    <p>Mouse Events</p>
+    <button onclick="alert('Clicked!')">Click me</button>
+    <button ondblclick="this.textContent='Double Clicked'">Double Click</button>
+    <div onmousedown="console.log('Mouse Down')">Mouse Down Here</div>
+    <div onmouseup="console.log('Mouse up')">Release mouse here</div>
+    <div onmouseover="this.style.backgroundColor='lightblue'">Mouse over me</div>
+    <div onmouseout="this.style.backgroundColor='white'">Mouse out from me</div>
+    <div onclick="this.style.backgroundColor='lightgreen'">Click me to change color</div>
+
+    <p>Keyboard Events</p>
+    <input onkeydown="console.log('Key down')" />
+    <input onkeyup="console.log('Key up')" />
+    <input onkeypress="console.log('Key press')" />
+
+    <p>Form/Other Events</p>
+    <input type="text" onchange="console.log('Value changed!')" />
+    <input type="text" onfocus="console.log('Input focused')" />
+    <input type="text" onblur="console.log('Input lost focus')" />
+  </body>
+</html>

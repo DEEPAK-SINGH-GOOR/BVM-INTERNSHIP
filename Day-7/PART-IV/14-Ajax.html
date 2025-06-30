@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple AJAX Project</title>
+  </head>
+  <body>
+    Status Code 1) Successfully Response (200 - 299) 2) Client Side Response
+    (400 - 499) 3) Server Side Response (500-599)
+    <p id="demo">Here Data</p>
+    <button id="loadButton">Click</button>
+
+    <script>
+      document.getElementById("loadButton").addEventListener("click", loadData);
+      function loadData() {
+        console.log("working");
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            document.getElementById("demo").textContent = this.responseText;
+          }
+        };
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+        xhttp.send();
+      }
+    </script>
+  </body>
+</html>
