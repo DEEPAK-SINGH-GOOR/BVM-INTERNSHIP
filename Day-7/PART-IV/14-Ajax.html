@@ -22,9 +22,15 @@
             document.getElementById("demo").textContent = this.responseText;
           }
         };
-        xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+        xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
         xhttp.send();
       }
+      // ReadyState values:
+      // 0: UNSENT (open() not called yet)
+      // 1: OPENED (open() called)
+      // 2: HEADERS_RECEIVED (send() called, headers & status available)
+      // 3: LOADING (downloading response)
+      // 4: DONE (operation complete)
     </script>
   </body>
 </html>
