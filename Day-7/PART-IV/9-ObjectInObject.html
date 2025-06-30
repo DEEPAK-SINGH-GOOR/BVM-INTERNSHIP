@@ -1,66 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Hello World</h1>
-    /*
-    Questions:
-    1. Add a new property to your myObject called favoriteFoods and set it equal to an array containing a list of three
-    strings.
-    2. Access your myObject's second favorite food and print it to the console using console.log()
-    3. Create a new variable called firstFavFood and set it equal to the first item in your myObject's array of favorite
-    foods.
-    4. Add another food to the end of the list.
-    5. Print the length of your myObject's favoriteFoods array to the console with console.log()
-    6. Without modifying any of your previous code, write a new line of code that changes the value of the last item in
-    the list to "pineapples" (overwriting the previous value).
-    7. Create a new variable named lastFavFood that will always point to the last element of your myObject's
-    favoriteFoods array, no matter how many items are in the list.
-    8. Write a for loop to iterate through every food in your myObject's favoriteFood property and print each one to the
-    console.
-    9. Add a new property to your myObject called outfit and set it equal to another object with the following
-    properties: hat, shirt, pants, and shoes -- each property should have a string as its value! (I suggest you give it
-    a baseball cap, Hawaiian shirt, cargo shorts, and flip-flops.)
-    10. Create a new variable called penguinHatType and set it equal to the value of the hat in your myObject's outfit!
-    Then print your new variable to the console.
-    11. Without modifying any of your previous code, write one new line of code to add an accessory property to your
-    myObject's outfit and set it equal to the string "pocket watch" -- because penguins are classy like that!
-    12. Write one more line of code to change the hat in your myObject's outfit to "top hat" and override the previous
-    value. (Again, because penguins are classy!)
+    Questions: 1. Add a new property to your myObject called favoriteFoods and
+    set it equal to an array containing a list of three strings. 2. Access your
+    myObject's second favorite food and print it to the console using
+    console.log() 3. Create a new variable called firstFavFood and set it equal
+    to the first item in your myObject's array of favorite foods. 4. Add another
+    food to the end of the list. 
+    
+    5. Print the length of your myObject's
+    favoriteFoods array to the console with console.log() 
+    
+    6. Without modifying any of your previous code, write a new line of code that changes the value
+    of the last item in the list to "pineapples" (overwriting the previous
+    value). 
+    
+    7. Create a new variable named lastFavFood that will always point to
+    the last element of your myObject's favoriteFoods array, no matter how many
+    items are in the list. 
+    
+    8. Write a for loop to iterate through every food in
+    your myObject's favoriteFood property and print each one to the console. 
+    
+    9. Add a new property to your myObject called outfit and set it equal to
+    another object with the following properties: hat, shirt, pants, and shoes
+    -- each property should have a string as its value! (I suggest you give it a
+    baseball cap, Hawaiian shirt, cargo shorts, and flip-flops.) 
+    
+    10. Create anew variable called penguinHatType and set it equal to the value of the hat
+    in your myObject's outfit! Then print your new variable to the console. 
+
+    11.Without modifying any of your previous code, write one new line of code to
+    add an accessory property to your myObject's outfit and set it equal to the
+    string "pocket watch" -- because penguins are classy like that! 
+    
+    12. Write one more line of code to change the hat in your myObject's outfit to "top
+    hat" and override the previous value. (Again, because penguins are classy!)
+    
     14. Let's delete the pants property from this myObject's outfit property.
-    15. Write a for ... in loop to print the value of each piece of clothing in your myObject's outfit so you can see a
-    list of clothing items in the console.
-    */
-</body>
-<script>
-   let myObject = {
-    character: "McPenguinFace",
-    origin: "Donald Duck",
-    notes: "Classic 1939 cartoon .",
-    canFly: true,
 
-    chirp: function () {
-    console.log("CHIRP CHIRP! Is this what penguins sound like?");
-    },
+    15. Write a for ... in loop to print the value of each piece of clothing in
+    your myObject's outfit so you can see a list of clothing items in the
+    console.
+  </body>
+  <script>
+    let myObject = {
+      character: "McPenguinFace",
+      origin: "Donald Duck",
+      notes: "Classic 1939 cartoon .",
+      canFly: true,
 
-    sayHello: function () {
-    console.log("Hello, I'm a penguin and my name is " + this.character + "!");
-    },
+      chirp: function () {
+        console.log("CHIRP CHIRP! Is this what penguins sound like?");
+      },
 
-    fly: function () {
-    if (this.canFly) {
-    console.log("I can fly!");
-    } else {
-    console.log("No flying for me!");
+      sayHello: function () {
+        console.log(
+          "Hello, I'm a penguin and my name is " + this.character + "!"
+        );
+      },
+
+      fly: function () {
+        if (this.canFly) {
+          console.log("I can fly!");
+        } else {
+          console.log("No flying for me!");
+        }
+      },
+    };
+    // 1) QUESTION
+    myObject.favoriteFoods = ["apple", "banana", "carrot"];
+    // 2) QUESTION
+    console.log(myObject.favoriteFoods[0]);
+    // 3 QUESTION
+    let firstFavFood = myObject.favoriteFoods[0];
+    // 4) QUESTION
+    myObject.favoriteFoods.push("mango");
+    // 5) QUESTION
+    console.log(myObject.favoriteFoods.length);
+    // 6) QUESTION
+    myObject.favoriteFoods.splice(-1, 1, "pineapples");
+    // 7) QUESTION
+    let lastFavFood = myObject.favoriteFoods[myObject.favoriteFoods.length-1] ="kiwi";
+    // let [lastFavFood] = myObject.favoriteFoods.slice(-1)
+    // console.log(lastFavFood);
+    
+    // 8) QUESTION
+    for (let i = 0; i < myObject.favoriteFoods.length; i++) {
+      console.log(myObject.favoriteFoods[i]);
     }
+    // 9) QUESTION
+    myObject.outFit ={
+        hat:" Police cap",
+        shirt:"hawaiian shirt",
+        pants:"cargo shorts",
+        shoes:"flip-flop"
     }
-    }; 
-</script>
-
+    // 10) QUESTION
+    let penguinHatType = myObject.outFit.hat
+    // console.log(penguinHatType);
+    // 11) QUESTION
+    myObject.outFit.accessory = "pocket Watch";
+    // 12) QUESTION
+    myObject.outFit.hat = "top hat";
+    // 14) QUESTION 
+    delete myObject.outFit.pants;
+    // 15) QUESTION
+    for(let item in myObject.outFit){
+        // console.log(myObject.outFit[item]);
+    }
+  </script>
 </html>

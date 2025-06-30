@@ -1,98 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multimedia Showcase</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url("bg.jpg");
+        background-size: cover;
+        font-family: Arial, sans-serif;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Multimedia Showcase</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url("bg.jpg");
-      background-size: cover;
-      font-family: Arial, sans-serif;
-    }
+      .container {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        max-width: 1200px;
+        margin: auto;
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      }
 
-    .container {
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.8);
-      max-width: 1200px;
-      margin: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-    }
+      img {
+        border-radius: 8px;
+        margin: 10px;
+      }
 
-    img {
-      border-radius: 8px;
-      margin: 10px;
-    }
+      .left-img {
+        width: 65%;
+      }
 
-    .left-img {
-      width: 35%;
-    }
+      .right-img {
+        float: right;
+        width: 35%;
+      }
 
-    .right-img {
-      float: right;
-      width: 35%;
-    }
+      .link-img {
+        display: block;
+        margin: 20px 0;
+      }
 
-    .link-img {
-      display: block;
-      margin: 20px 0;
-    }
+      iframe {
+        display: block;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      }
 
-    iframe {
-      display: block;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
-    }
+      audio {
+        display: block;
+        margin: 20px auto;
+      }
 
-    audio {
-      display: block;
-      margin: 20px auto;
-    }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+    </style>
+  </head>
 
-    h1 {
-      text-align: center;
-      color: #333;
-    }
-  </style>
-</head>
+  <body>
+    <div class="container">
+      <h1>Multimedia & Image Showcase</h1>
 
-<body>
-  <div class="container">
-    <h1>Multimedia & Image Showcase</h1>
+      <img
+        class="left-img"
+        src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?cs=srgb&dl=pexels-mikebirdy-112460.jpg&fm=jpg"
+        alt="Website Banner"
+      />
 
-    <img class="left-img"
-      src="https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?cs=srgb&dl=pexels-mikebirdy-112460.jpg&fm=jpg"
-      alt="Website Banner" />
+      <img
+        src="https://i.pinimg.com/originals/3f/f5/18/3ff5188ff22ded5d23bd9f85f06ed656.gif"
+        alt="Loading animation"
+        width="300"
+      />
 
-    <img src="https://i.pinimg.com/originals/3f/f5/18/3ff5188ff22ded5d23bd9f85f06ed656.gif" alt="Loading animation"
-      width="300" />
+      <img
+        class="right-img"
+        src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mikebirdy-170811.jpg&fm=jpg"
+        alt="Right-aligned image"
+      />
 
-    <img class="right-img"
-      src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?cs=srgb&dl=pexels-mikebirdy-170811.jpg&fm=jpg"
-      alt="Right-aligned image" />
+      <!-- Clickable image link -->
+      <a href="https://example.com" target="_blank">
+        <img
+          class="link-img"
+          src="https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_960_720.jpg"
+          width="35%"
+          alt="Click to visit site"
+        />
+      </a>
 
-    <!-- Clickable image link -->
-    <a href="https://example.com" target="_blank">
-      <img class="link-img"
-        src="https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_960_720.jpg" width="35%"
-        alt="Click to visit site" />
-    </a>
-
-    <!-- Embedded YouTube video -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/6idc3p9b9Bs" title="YouTube video player"
-      allowfullscreen></iframe>
-
-    <!-- Audio Player -->
-    <audio controls>
-      <source src="audio.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-</body>
-
+      <!-- Embedded YouTube video -->
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/6idc3p9b9Bs"
+        title="YouTube video player"
+        allowfullscreen
+      ></iframe>
+      <a href="https://www.youtube.com/embed/6idc3p9b9Bs"
+        >Click to view Videos</a
+      >
+      <!-- Audio Player -->
+      <audio controls>
+        <source src="audio.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </body>
 </html>

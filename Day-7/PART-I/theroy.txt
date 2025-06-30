@@ -12,5 +12,3 @@ type                Description
 (ii)XHTML           (Extensible HyperText Markup Language), Stricter version of HTML that follows XML rules
 (iii)XML            Used for data storage and transport
 (iv) HTML5          Latest HTML version with support for media, semantic elements, etc.
-
-

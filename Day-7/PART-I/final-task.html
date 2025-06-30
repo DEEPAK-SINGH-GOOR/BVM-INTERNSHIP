@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Real-Time Clock</title>
-  <style>
-    .clock {
-      font-size: 24px;
-      color: green;
-    }
-    #heading {
-      color: blue;
-      font-family: Arial;
-    }
-  </style>
-</head>
-<body>
-  <h1 id="heading">Welcome to My Page</h1>
-  <p>This paragraph is styled using basic CSS.</p>
-  
-  <p class="clock" id="clock"></p>
-
-  <script>
-    function updateClock() {
-      const now = new Date();
-      document.getElementById("clock").innerText = now.toLocaleTimeString();
-    }
-    setInterval(updateClock, 1000);
-    updateClock(); // Initial call
-  </script>
-</body>
+  <head>
+    <title>Real-Time Clock</title>
+    <style>
+      .clock {
+        font-size: 24px;
+        color: green;
+      }
+      #heading {
+        color: blue;
+        font-family: Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Welcome to My Page</h1>
+    <p>This paragraph is styled using basic CSS.</p>
+    <p class="clock" id="clock"></p>
+    <script>
+      // function updateClock() {
+      //   const now = new Date();
+      //   document.getElementById("clock").innerHTML = now.toLocaleTimeString();
+      // }
+      // setInterval(updateClock, 1000);
+      // updateClock();
+      function updateClock() {
+        let clock = new Date();
+        document.getElementById("clock").innerHTML = clock.toLocaleTimeString()
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+    </script>
+  </body>
 </html>
-
