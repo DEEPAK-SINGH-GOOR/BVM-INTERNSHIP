@@ -8,21 +8,33 @@
   <body>
     <h1>LocalStorage , Session , Cookies</h1>
     <p>
-      Cookies LocalStorage SessionStorage 
-      1) 4kb  10mb 5mb 
-      2) Any Window   AnyWindow    Same Tab 
-      3) Manually      Never On    same Tab 
-      4) Browser & Server Browser  Browser
+      Cookies LocalStorage SessionStorage 1) 4kb 10mb 5mb 2) Any Window
+      AnyWindow Same Tab 3) Manually Never On same Tab 4) Browser & Server
+      Browser Browser
     </p>
   </body>
-  <script >
+  <script>
     localStorage.setItem("name", "person");
 
-sessionStorage.setItem("name", "person2");
+    sessionStorage.setItem("name", "person2");
 
-sessionStorage.setItem("name", "person");
-sessionStorage.setItem("name", "person");
+    sessionStorage.setItem("name", "person");
+    sessionStorage.setItem("name", "person");
 
-document.cookie = "name=person4; expires=" + new Date(9999, 0, 1).toUTCString();
+    document.cookie =
+      "name=person4; expires=" + new Date(2025, 7, 1).toUTCString();
+    //   0 → January
+
+    // 1 → February
+
+    // 2 → March
+
+    // ...
+
+    // 6 → July
+
+    // 7 → August
+
+    // 11 → December
   </script>
 </html>
