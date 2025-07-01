@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container{
+            display: grid;
+           grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+            grid-gap: 20px;
+            grid-auto-rows: minmax(100px ,auto);
+            grid-auto-columns: minmax(50px,auto);
+        }
+        .items{
+            background-color:rgb(117, 193, 255) ;
+            border: 3px solid black;
+        }
+        #item3{
+            grid-row-start:2;
+            grid-row-end:3 ;
+        }
+    </style>
+    <div class="container">
+        <div class="items" id="item1">box1</div>
+        <div class="items" id="item2">box2</div>
+        <div class="items" id="item3">box3</div>
+        <div class="items" id="item4">box4</div>
+        <div class="items" id="item5">box5</div>
+        <div class="items" id="item6">box6</div>
+    </div>
+</body>
+</html>

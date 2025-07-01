@@ -10,7 +10,9 @@
       #heading {
         color: blue;
         font-family: Arial;
+        font-style: italic;
       }
+
     </style>
   </head>
   <body>
@@ -26,7 +28,7 @@
       // updateClock();
       function updateClock() {
         let clock = new Date();
-        document.getElementById("clock").innerHTML = clock.toLocaleTimeString()
+        document.getElementById("clock").innerHTML = clock.toLocaleTimeString();
       }
       setInterval(updateClock, 1000);
       updateClock();
