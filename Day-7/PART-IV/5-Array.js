@@ -120,7 +120,7 @@ Questions:-
 // })
 // console.log(NodeName);
 // (ii)
-console.log('NodeName',students.filter((node)=>node.className === "Node Js"));
+// console.log('NodeName',students.filter((node)=>node.className === "Node Js"));
 
 
 // 2) QUESTION
@@ -129,7 +129,7 @@ console.log('NodeName',students.filter((node)=>node.className === "Node Js"));
 // })
 // console.log(aaaName);
 // (ii)
-console.log('aaaName',students.find((aaa)=>aaa.name ==="aaa")); 
+// console.log('aaaName',students.find((aaa)=>aaa.name ==="aaa")); 
 
 
 // // 3) QUESTION
@@ -138,7 +138,7 @@ console.log('aaaName',students.find((aaa)=>aaa.name ==="aaa"));
 // }))]
 // console.log(allClass);
 // (ii)
-console.log('All Classes',[...new Set(students.map((all)=>all.className))]);
+// console.log('All Classes',[...new Set(students.map((all)=>all.className))]);
 
 // 4) QUESTUION
 // const keyName = Object.keys(students[0])

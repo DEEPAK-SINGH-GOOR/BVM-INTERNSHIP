@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mutation Observer</title>
+  </head>
+  <body>
+    <style>
+      .parent-div {
+        background: #d3ffe4;
+        display: flex;
+        gap: 20px;
+      }
+      .box1 {
+        height: 200px;
+        width: 200px;
+        background: #8bfbff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box2 {
+        height: 200px;
+        width: 200px;
+        background: #02ffea;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .box3 {
+        height: 200px;
+        width: 200px;
+        background: #d2ff7d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <!-- contenteditable="" for changes data directly in browser -->
+    <div contenteditable id="elem" class="parent-div">hello
+      <div contenteditable class="box1">BOX 1</div>
+      <div contenteditable class="box2">BOX 2</div>
+      <div contenteditable class="box3">BOX 3</div>
+    </div>
+    <button onclick="deleteDiv()">Delete Div</button>
+  </body>
+  <script>
+    let Observer = new MutationObserver((data) => {
+      console.log(data);
+    });
+    Observer.observe(elem, {
+      childList: true,
+      characterData: true,
+      // For nested Div //for div child
+      subtree: true,
+    });
+    function deleteDiv() {
+      document.getElementById("elem").children[0].remove();
+    }
+  </script>
+</html>
