@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Registration</title>
+    <link
+      rel="shortcut icon"
+      href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCHU5JIkqfD2z1KMc4c1nW4zdArnxBM3cCcQ&s"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <style>
+      body {
+        text-align: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      #form-list {
+        text-align: center;
+        border: 0px solid rgba(255, 255, 255, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* width: 500px; */
+      }
+      #stylediv {
+        width: 320px;
+        text-align: left;
+        padding: 28px;
+        box-shadow: 5px 7px 5px 7px rgb(224, 224, 224);
+        background-color: rgb(255, 255, 255);
+        /* border-radius: px; */
+      }
+      table {
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+        text-align: center;
+        width: 100%;
+        padding: 10px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      span {
+        color: red;
+      }
+      .inputStyle {
+        background-color: rgb(255, 255, 255);
+        width: 300px;
+        border: 2px solid rgb(87, 87, 87);
+        height: 30px;
+        box-shadow: 2px 4px 4px 2px rgb(199, 199, 199);
+        border-radius: 3px;
+      }
+      .inputStyle:hover {
+        border: 2px solid rgb(189, 189, 189);
+      }
+      #submitbtn {
+        font-size: large;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 102, 255);
+        border-radius: 2px;
+        border: 0xp solid black;
+        width: 100px;
+        height: 33px;
+      }
+      #submitbtn:hover {
+        transform: scale(1.2);
+      }
+    </style>
+    <h1>
+      Employee Registration
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCHU5JIkqfD2z1KMc4c1nW4zdArnxBM3cCcQ&s"
+        height="30px"
+        alt=""
+      />
+    </h1>
+    <form id="form-list">
+      <div id="stylediv">
+        <label for="">First Name</label>
+        <input
+          class="inputStyle"
+          type="text"
+          id="firstName"
+          placeholder="Enter First Name"
+        />
+        <span id="error_name"></span>
+        <br /><br />
+        <label for="">Last Name</label>
+        <input
+          class="inputStyle"
+          type="text"
+          id="lastName"
+          placeholder="Enter Last Name"
+        />
+        <span id="error_last"></span>
+        <br /><br />
+        <label for="">Roll No</label>
+        <input
+          class="inputStyle"
+          type="number"
+          id="rollNo"
+          placeholder="Enter Roll No"
+        />
+        <span id="error_roll"></span>
+        <br /><br />
+        <label for="">Date Of Birth</label>
+        <input
+          class="inputStyle"
+          type="date"
+          id="dob"
+          placeholder="Date of Birth"
+        />
+        <span id="error_dob"></span>
+        <br /><br />
+        <div>
+          <label>Gender :</label>
+          <label><input type="radio" name="gender" value="male" />Male</label>
+          <label
+            ><input type="radio" name="gender" value="female" />female</label
+          >
+          <label><input type="radio" name="gender" value="other" />Other</label>
+          <span id="error_Gender"></span>
+        </div>
+        <br />
+        <label for="">Country :</label>
+        <select name="country" id="country">
+          <option value="" selected disabled hidden>Select Country</option>
+          <option value="usa">USA</option>
+          <option value="india">India</option>
+          <option value="Canada">Canada</option>
+        </select>
+        <span id="error_country"></span>
+        <br /><br />
+
+        <label>Language:</label>
+        <label
+          ><input
+            type="checkbox"
+            name="language"
+            value="english"
+          />English</label
+        >
+        <label
+          ><input type="checkbox" name="language" value="hindi" />Hindi</label
+        >
+        <label
+          ><input
+            type="checkbox"
+            name="language"
+            value="gujarati"
+          />Gujarati</label
+        >
+        <span id="error_language"></span>
+        <br /><br />
+        <div>
+          <span></span>
+          <label>Profile Pic:</label><br /><br />
+          <input type="file" id="input-file" multiple />
+        </div>
+        <br />
+        <input type="submit" id="submitbtn" />
+      </div>
+    </form>
+    <br /><br /><br /><br />
+    <label>Filter By Gender ,Country , language</label>
+    <br /><br />
+    <div>
+      <select id="filter-gender">
+        <option>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <select id="filter-country">
+        <option >Select Country</option>
+        <option value="usa">USA</option>
+        <option value="india">India</option>
+        <option value="Canada">Canada</option>
+      </select>
+      <select id="filter-language">
+        <option >Select Language</option>
+        <option value="english">English</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Gujarati">Gujarati</option>
+      </select>
+    </div>
+    <br /><br />
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Profile Image</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Roll No</th>
+          <th>Date of Birth</th>
+          <th>Gender</th>
+          <th>Country</th>
+          <th>Language</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="student-list"></tbody>
+    </table>
+  </body>
+  <script src="./script.js"></script>
+</html>
