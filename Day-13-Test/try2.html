@@ -54,19 +54,6 @@
     let filterCountry = document.getElementById("filter-country");
     let filterLanguage = document.getElementById("filter-language");
 
-    let genderValue = filterGender.value;
-    console.log(genderValue);
-
-    let countryValue = filterCountry.value;
-    console.log(countryValue);
-
-    let languageValue = filterLanguage.value;
-    console.log(languageValue);
-
-    // function getUniValue(){
-    //     let uniqueValue = {};
-    // }
-
     let imageData = [];
     let selectedRow = null;
 
@@ -220,10 +207,14 @@
         const genderFilter = filterGender.value;
         const countryFilter = filterCountry.value;
         const languageFilter = filterLanguage.value;
-
+        console.log(genderFilter);
+        console.log(countryFilter);
+        console.log(languageFilter);
+        
         // Get all rows inside the list/table
         const rows = list.querySelectorAll("tr");
-
+        console.log(rows);
+        
         // Loop through each row
         rows.forEach((row) => {
             const gender = row.children[5].textContent;
