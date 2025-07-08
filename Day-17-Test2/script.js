@@ -1,39 +1,75 @@
 document.addEventListener("DOMContentLoaded", function () {
-  let form = document.getElementById("form-Data");
-  // console.log(form);
-  
-  let firstName = document.getElementById("first-Name");
-  let lastName = document.getElementById("last-Name");
-  let rollNo = document.getElementById("rollNo");
-  let dateOfBirth = document.getElementById("DateOfBirth");
-  let selectedCountry = document.getElementById("select-country");
-  let imageFile = document.getElementById("input-file");
 
-  let list = document.getElementById("student-data");
+  const form = document.getElementById("form-Data");
+  const firstName = document.getElementById("first-Name");
+  const lastName = document.getElementById("last-Name");
+  const rollNo = document.getElementById("rollNo");
+  const dateOfBirth = document.getElementById("DateOfBirth");
+  const selectedCountry = document.getElementById("select-country");
+  const imageFile = document.getElementById("input-file");
+  const list = document.getElementById("student-data");
 
-  //Error
-  let error_name = document.getElementById("error_name");
-  let error_last = document.getElementById("error_last");
-  let error_roll = document.getElementById("error_roll");
-  let error_date = document.getElementById("error_date");
-  let error_gender = document.getElementById("error_gender");
-  let error_country = document.getElementById("error_country");
-  let error_language = document.getElementById("error_language");
+  const error_name = document.getElementById("error_name");
+  const error_last = document.getElementById("error_last");
+  const error_roll = document.getElementById("error_roll");
+  const error_date = document.getElementById("error_date");
+  const error_gender = document.getElementById("error_gender");
+  const error_country = document.getElementById("error_country");
+  const error_language = document.getElementById("error_language");
 
   let imageData = [];
   let selectedRow = null;
+  let studentData = [];
+
+  function loadLocalStorage() {
+    
+    const data = JSON.parse(localStorage.getItem("students")) || [];
+    studentData = data;
+    // store in localStorage but not show on Page
+    renderTable();
+  }
+  function saveLocalStorage() {
+    localStorage.setItem("students", JSON.stringify(studentData));
+  }
+
+  function renderTable() {
+    list.innerHTML = ""; 
+    
+    studentData.forEach((student,index) => {
+      const row = document.createElement("tr");
+
+      const imageHTML = student.images.map(
+        (src) => `<img src="${src}" height="50px" width="50px">`
+      );
+
+      row.innerHTML = `
+        <td>${imageHTML}</td>
+        <td>${student.fName}</td>
+        <td>${student.lName}</td>
+        <td>${student.roll}</td>
+        <td>${student.dob}</td>
+        <td>${student.gender}</td>
+        <td>${student.country}</td>
+        <td>${student.language}</td>
+        <td>
+          <button class="edit" data-index="${index}" style="background-color: rgb(0, 187, 255);">Edit</button>
+          <button class="delete" data-index="${index}" style="background-color: red;">Delete</button>
+        </td>
+      `;
+      list.appendChild(row);
+    });
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    let fName = firstName.value;
-    let lName = lastName.value;
-    let roll = rollNo.value;
-    let dob = dateOfBirth.value;
-    let country = selectedCountry.value;
-    let gender = form.querySelector('input[name="gender"]:checked')?.value;
-    let language = Array.from(
-      form.querySelectorAll(`input[name="language"]:checked`)
-    ).map((input) => input.value);
+
+    const fName = firstName.value;
+    const lName = lastName.value;
+    const roll = rollNo.value;
+    const dob = dateOfBirth.value;
+    const country = selectedCountry.value;
+    const gender = form.querySelector('input[name="gender"]:checked')?.value;
+    const language = Array.from(form.querySelectorAll('input[name="language"]:checked')).map(input => input.value);
 
     error_name.textContent = "";
     error_last.textContent = "";
@@ -44,117 +80,47 @@ document.addEventListener("DOMContentLoaded", function () {
     error_language.textContent = "";
 
     let isValid = true;
-    if (!fName) {error_name.textContent = "First Name Required";isValid = false;
-      console.log('hello1');
-    }
-    if (!lName) {error_last.textContent = "Last Name Required";isValid = false;
-      console.log('hello2');
-    }
-    if (!roll) {error_roll.textContent = "Roll Number Required";isValid = false;
-      console.log('hello3');
-    }
-    if (!dob) {error_date.textContent = "Date of Birth Required";isValid = false;
-      console.log('hello4');
-    }
-    if (!gender) {error_gender.textContent = "Gender Required";isValid = false;
-      console.log('hello5');
-    }
-    if (!country) {error_country.textContent = "Country Required";isValid = false;
-      console.log('hello6');
-    }
-    if (language == 0) {error_language.textContent = "At List 1 Language Required";isValid = false;
-      console.log('hello7');
-    }
-    if (!isValid) return
-    console.log(!isValid);
+    if (!fName) { error_name.textContent = "First Name Required"; isValid = false; }
+    if (!lName) { error_last.textContent = "Last Name Required"; isValid = false; }
+    if (!roll) { error_roll.textContent = "Roll Number Required"; isValid = false; }
+    if (!dob) { error_date.textContent = "Date of Birth Required"; isValid = false; }
+    if (!gender) { error_gender.textContent = "Gender Required"; isValid = false; }
+    if (!country) { error_country.textContent = "Country Required"; isValid = false; }
+    if (language.length === 0) { error_language.textContent = "At least 1 Language Required"; isValid = false; }
 
-    let imageHTML = imageData.map(
-      (src) => `<img src="${src}" height="50px" width="50px">`
-    );
+    if (!isValid) return;
 
-    if (selectedRow === null) {
-      let row = document.createElement("tr");
-      row.innerHTML = `
-            <td>${imageHTML}</td>
-            <td>${fName}</td>
-            <td>${lName}</td>
-            <td>${roll}</td>
-            <td>${dob}</td>
-            <td>${gender}</td>
-            <td>${country}</td>
-            <td>${language}</td>
-             <td>
-                
-           </td>     
-        `;
-      list.append(row);
-    } else {
-      selectedRow.children[0].innerHTML = imageHTML;
-      selectedRow.children[1].innerHTML = fName;
-      selectedRow.children[2].innerHTML = lName;
-      selectedRow.children[3].innerHTML = roll;
-      selectedRow.children[4].innerHTML = dob;
-      selectedRow.children[5].innerHTML = gender;
-      selectedRow.children[6].innerHTML = country;
-      selectedRow.children[7].innerHTML = language;
-    }
-    form.reset();
-    selectedRow = null;
-
-  });
-
-  list.addEventListener("click", function (e) {
-    e.preventDefault();
-    if (e.target.classList.contains("edit")) {
-      selectedRow = e.target.closest("tr");
-
-      imageData = Array.from(
-        selectedRow.children[0].querySelectorAll("img")
-      ).map((img) => img.src);
-
-      firstName.value = selectedRow.children[1].textContent;
-      lastName.value = selectedRow.children[2].textContent;
-      rollNo.value = selectedRow.children[3].textContent;
-      dateOfBirth.value = selectedRow.children[4].textContent;
-      const genderValue = selectedRow.children[5].textContent;
-
-      const genderInput = form.querySelector(
-        `input[name="gender"][value="${genderValue}"]`
-      );
-      if (genderInput) genderInput.checked = true;
-
-      selectedCountry.value = selectedRow.children[6].textContent;
-
-      const language = selectedRow.children[7].textContent.split(",").map((l) => l);
-      form.querySelectorAll('input[name="language"]').forEach((input) => {
-        input.checked = language.includes(input.value);
-      });
-    }
+    const student = {
+      images: [...imageData],
+      fName,
+      lName,
+      roll,
+      dob,
+      gender,
+      country,
+      language: language
+    };
+    // console.log(student);
     
-    // if (e.target.classList.contains("delete")) {
-    //   e.target.closest("tr").remove();
-    //   form.reset();
-    //   selectedRow = null;
-    //   imageData = [];
-    // }
-    // function deleteData(index){
-    //   list.splice(index,1).remove()
-    // } deleteData()
-    // function deleteData(index){
-    //   if(Array.isArray(list) && index>=0 && index < list.length){
-    //     list.splice(index,1)
-        
-    //   }
-    //   else{
-    //     console.log('invalid Index');
-    //     alert("invalid Index !!")
-    //   }
-    // }
-   
+    if (selectedRow !== null) {
+      const index = selectedRow.getAttribute("data-index");
+      // console.log(selectedRow.getAttribute("data-index")); indexNo 
+      studentData[index] = student;
+      // console.log(studentData[index]);
+      
+    } else {
+      studentData.push(student);
+      // console.log(studentData);
+    }
+    // to save in localStorage
+    saveLocalStorage();
+    // store in localStorage but not show in Page
+    renderTable();
+    // Form Reset
+    form.reset();
   });
 
   imageFile.addEventListener("change", function () {
-    
     imageData = [];
     const files = [...imageFile.files];
 
@@ -166,38 +132,70 @@ document.addEventListener("DOMContentLoaded", function () {
       reader.readAsDataURL(file);
     });
   });
-  let Gender = document.getElementById("filter-gender");
-  let Country = document.getElementById("filter-country");
-  let Language = document.getElementById("filter-language");
 
-  function Filter() {
-    let genderValue = Gender.value;
-    let countryValue = Country.value;
-    let languageValue = Language.value;
+  list.addEventListener("click", function (e) {
+    const index = e.target.getAttribute("data-index");
 
-    const rows = list.querySelectorAll("tr");
+    if (e.target.classList.contains("edit")) {
 
-    rows.forEach((row) => {
-      const gender = row.children[5].textContent;
-      const country = row.children[6].textContent;
-      const language = row.children[7].textContent;
+      selectedRow = e.target.closest("tr");
 
-      const genderMatch = genderValue === "" || gender === genderValue;
-      console.log(genderMatch);
-      const countryMatch = countryValue === "" || country === countryValue;
-      const languageMatch =
-        languageValue === "" || language.includes(languageValue);
+      selectedRow.setAttribute("data-index", index);
 
-      if (genderMatch && countryMatch && languageMatch) {
-        row.style.display = "";
-      } else {
-        row.style.display = "none";
-      }
-    });
-  }
-  Gender.addEventListener("change", Filter);
-  Country.addEventListener("change", Filter);
-  Language.addEventListener("change", Filter);
-  // console.log('running');
-  
+      const student = studentData[index];
+      // console.log(studentData);
+      
+      firstName.value = student.fName;
+      lastName.value = student.lName;
+      rollNo.value = student.roll;
+      dateOfBirth.value = student.dob;
+      selectedCountry.value = student.country;
+
+      imageData = [...student.images];
+      // console.log(imageData);
+      
+      const genderInput = form.querySelector(`input[name="gender"][value="${student.gender}"]`);
+      if (genderInput) genderInput.checked = true;
+
+      form.querySelectorAll('input[name="language"]').forEach(input => {
+        input.checked = student.language.includes(input.value);
+      });
+    }
+
+    if (e.target.classList.contains("delete")) {
+      studentData.splice(index,1);    
+      saveLocalStorage();             
+      renderTable();                     
+    }
+  });
+  //  function Filter() {
+  //   let genderValue = Gender.value;
+  //   let countryValue = Country.value;
+  //   let languageValue = Language.value;
+
+  //   const rows = list.querySelectorAll("tr");
+
+  //   rows.forEach((row) => {
+  //     const gender = row.children[5].textContent;
+  //     const country = row.children[6].textContent;
+  //     const language = row.children[7].textContent;
+
+  //     const genderMatch = genderValue === "" || gender === genderValue;
+  //     console.log(genderMatch);
+  //     const countryMatch = countryValue === "" || country === countryValue;
+  //     const languageMatch =
+  //       languageValue === "" || language.includes(languageValue);
+
+  //     if (genderMatch && countryMatch && languageMatch) {
+  //       row.style.display = "";
+  //     } else {
+  //       row.style.display = "none";
+  //     }
+  //   });
+  // }
+  // Gender.addEventListener("change", Filter);
+  // Country.addEventListener("change", Filter);
+  // Language.addEventListener("change", Filter);
+  loadLocalStorage();
 });
+

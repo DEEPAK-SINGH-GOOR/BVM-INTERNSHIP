@@ -70,6 +70,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        
+      }
+      .delete{
+        background-color: red; border-radius: 5px; border: none; color: white; padding: 7px; margin: 2px; cursor: pointer;
+      }
+      .edit{
+        background-color: rgb(0, 187, 255); border-radius: 5px;border: none; color: white; padding: 7px; margin: 2px; cursor: pointer;
       }
     </style>
     <!-- Form -->
@@ -137,7 +144,6 @@
       </form>
       <br />
       <!-- Filter -->
-      
         </div>
         <br><br>
         <!-- Filter -->
@@ -161,7 +167,6 @@
               <option value="hindi">Hindi</option>
               <option value="gujarati">Gujarati</option>
             </select>
-             
           </div>
       <!-- Table List -->
        <h1>TABLE-DATA</h1>
@@ -183,8 +188,7 @@
           </tr>
         </thead>
         <tbody id="student-data">
-             <button class="edit" style="background-color: rgb(0, 187, 255);">Edit</button>
-             <button class="delete" style="background-color: red;" onclick="deleteData()">Delete</button>
+
         </tbody>
       </table>
       </div>
