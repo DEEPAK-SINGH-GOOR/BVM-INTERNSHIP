@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      h1 {
+        font-size: 35px;
+        text-align: center;
+      }
+      * {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: large;
+      }
+      span {
+        color: red;
+      }
+      /* table {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+      } */
+
+      .minDiv {
+        background-color: rgb(255, 255, 255);
+        width: 600px;
+        margin: 10px;
+        padding: 20px;
+        /* border: 2px solid rgb(255, 255, 255); */
+        box-shadow: 7px 4px 10px 13px rgb(216, 216, 216);
+        border-radius: 15px;
+        /* background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20201026/pngtree-scene-with-geometrical-forms-the-poster-model-minimal-background-render-image_437743.jpg'); */
+      }
+      
+      .input-style {
+        background-color: rgb(31, 109, 255);
+        color: aliceblue;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        height: 50px;
+        width: 70%;
+        border-radius: 5px;
+        margin-left:80px ;
+      }
+      .input-style:hover{
+        cursor:pointer;
+      }
+      .formStyle {
+        text-align: left;
+      }
+      #form-Data {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .filter{
+        text-align: center;
+      }
+      .input-length{
+             width: 250px;
+             height: 30px;
+             border-radius: 6px;
+      }
+      .tablecss{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+      }
+      .delete{
+        background-color: red; border-radius: 5px; border: none; color: white; padding: 7px; margin: 2px; cursor: pointer;
+      }
+      .edit{
+        background-color: rgb(0, 187, 255); border-radius: 5px;border: none; color: white; padding: 7px; margin: 2px; cursor: pointer;
+      }
+    </style>
+    <!-- Form -->
+    <div class="formStyle">
+      <form id="form-Data">
+        <div class="minDiv">
+          <h1>STUDENT-FORM</h1>
+          <label>First Name :</label>
+          <input class="input-length" type="text" placeholder="Enter First Name" id="first-Name" />
+          <span id="error_name"></span>
+          <br /><br />
+          <label>Last Name :</label>
+          <input class="input-length" type="text" placeholder="Enter Last Name" id="last-Name" />
+          <span id="error_last"></span>
+          <br /><br />
+          <label>Roll No :</label>
+          <input class="input-length" type="number" placeholder="Enter Roll" id="rollNo" />
+          <span id="error_roll"></span>
+          <br /><br />
+          <label>Date Of Birth :</label>
+          <input class="input-length" type="date" id="DateOfBirth" />
+          <span id="error_date"></span>
+          <br /><br />
+          <div>
+            <label>Gender :</label>
+            <input type="radio" name="gender" value="male" />
+            <label>Male</label>
+            <input type="radio" name="gender" value="female" />
+            <label>Female</label>
+            <input type="radio" name="gender" value="other" />
+            <label>Other</label>
+          </div>
+          <span id="error_gender"></span>
+          <br />
+          <div>
+            <label>Select Country :</label>
+            <select id="select-country">
+              <option value="" selected disabled hidden>Select Country</option>
+              <option value="usa" value="">USA</option>
+              <option value="india">India</option>
+              <option value="canada">Canada</option>
+            </select>
+            <span id="error_country"></span>
+          </div>
+          <br />
+          <div>
+            <label>Select Language:</label>
+            <input type="checkbox" name="language" value="english" />
+            <label>English</label>
+            <input type="checkbox" name="language" value="hindi" />
+            <label>Hindi</label>
+            <input type="checkbox" name="language" value="gujarati" />
+            <label>Gujarati</label>
+            <span id="error_language"></span>
+          </div>
+
+          <br />
+          <div>
+            <label>Profile Pic :</label>
+            <input type="file" id="input-file"  multiple />
+          </div>
+          <br /><br>
+          <input type="submit" class="input-style" />
+          <br>
+      </form>
+      <br />
+      <!-- Filter -->
+     
+        </div>
+        <br><br>
+        <!-- Filter -->
+          <div class="filter">
+            <label>Select Option:</label>
+            <select id="filter-gender">
+              <option value="">All Gender</option>
+              <option value="male">Male</option>
+              <option value="female">female</option>
+              <option value="other">Other</option>
+            </select>
+            <select id="filter-country">
+              <option value="">All Country</option>
+              <option value="usa">USA</option>
+              <option value="india">India</option>
+              <option value="canada">Canada</option>
+            </select>
+            <select id="filter-language">
+              <option value="">All Language</option>
+              <option value="english">English</option>
+              <option value="hindi">Hindi</option>
+              <option value="gujarati">Gujarati</option>
+            </select>
+              
+          </div>
+      <!-- Table List -->
+       <h1>TABLE-DATA</h1>
+       <div class="tablecss">
+         
+      <table border="3" class="tableStyle">
+       
+        <thead>
+          <tr>
+            <th>Profile Pic</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Roll No</th>
+            <th>Date Of Birth</th>
+            <th>Gender</th>
+            <th>Country</th>
+            <th>Language</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="student-data">
+            
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
