@@ -15,12 +15,8 @@
         let name = input.value;
         localStorage.name = name;
         sessionStorage.name = name;
-        document.cookie =
-          "name=" +
-          name +
-          "; expires=" +
-          // 1 Hour
-          new Date(Date.now() + 3600000).toUTCString();
+        document.cookie ="name=" +name +"; expires=" + new Date(Date.now() + 36000000).toUTCString();
+        
         out.innerText = `Local: ${name}, Session: ${name}, Cookie: ${name}`;
       }
     </script>
