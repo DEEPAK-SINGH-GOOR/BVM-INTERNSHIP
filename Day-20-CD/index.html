@@ -65,11 +65,19 @@
         align-items: center;
         font-size: 60px;
       }
+      .PDF {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
   </head>
   <body>
     <div class="title">
       <p>COLLEGE REGISTRATION</p>
+    </div>
+    <div class="PDF">
+      <button onclick="downloadPDF()">Download PDF</button>
     </div>
     <div class="centerFilter">
       <label><b>Select Option:</b></label>
@@ -118,7 +126,7 @@
       <a class="download" href="./image (1).pdf" download="">Download</a>
     </div>
     <div class="centerTable">
-      <table border="2" >
+      <table border="2" id="dataTable">
         <thead>
           <th>Id</th>
           <th>Name</th>
@@ -137,6 +145,13 @@
         <tbody id="tableBody"></tbody>
       </table>
     </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
+      integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <script src="./script.js"></script>
   </body>
 </html>

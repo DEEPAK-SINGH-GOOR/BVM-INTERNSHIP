@@ -850,4 +850,14 @@ function tableReset() {
   document.getElementById("filter-merit").value = "";
   Filter();
 }
+function downloadPDF(){
+  const {jsPDF} = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.autoTable({
+    html:'#dataTable'
+  })
+  doc.save("styled_table.pdf");
+} 
+
 loadTable();
