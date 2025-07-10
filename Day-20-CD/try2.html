@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Table</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .centerFilter, .OtherFunction {
+      margin-bottom: 10px;
+    }
+    select, button, a {
+      padding: 6px 10px;
+      margin-right: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #aaa;
+      text-align: center;
+    }
+    .download {
+      background-color: rgb(174, 174, 174);
+      color: white;
+      text-decoration: none;
+    }
+    .reset {
+      background-color: rgb(195, 195, 195);
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="centerFilter">
+    <label>Select Option:</label>
+    <select id="filter-gender">
+      <option value="">All Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </div>
+
+  <div class="OtherFunction">
+    <button class="reset" onclick="tableReset()">Reset All</button>
+    <a class="download" href="./image (1).png" download>Download</a>
+  </div>
+
+  <div class="centerTable">
+    <table id="tableData">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Gender</th>
+          <th>Ad Year</th>
+          <th>Merit</th>
+          <th>Ad Cat</th>
+          <th>College</th>
+          <th>Department</th>
+          <th>Dep Head</th>
+          <th>Year Head</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <script>
+    const data = [
+      {
+        id: "2020_1",
+        name: "Student 1",
+        email: "student1@college.com",
+        contact: "9879871001",
+        gender: "Male",
+        adYear: 2020,
+        merit: 82,
+        adCat: "Regular",
+        collage: "S. V. Institute",
+        department: "Civil",
+        depHead: "Rahul Dravid",
+        yearHead: "Rachana Patel",
+        year: "Second",
+      },
+      {
+        id: "2020_2",
+        name: "Student 2",
+        email: "student2@college.com",
+        contact: "9879871002",
+        gender: "Female",
+        adYear: 2021,
+        merit: 88,
+        adCat: "Management",
+        collage: "N. V. Institute",
+        department: "Computer",
+        depHead: "Sourav Ganguly",
+        yearHead: "Pooja Sharma",
+        year: "First",
+      }
+    ];
+
+    function loadTable() {
+      const tableBody = document.getElementById("tableBody");
+      tableBody.innerHTML = "";
+      data.forEach(info => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${info.id}</td>
+          <td>${info.name}</td>
+          <td>${info.email}</td>
+          <td>${info.contact}</td>
+          <td>${info.gender}</td>
+          <td>${info.adYear}</td>
+          <td>${info.merit}</td>
+          <td>${info.adCat}</td>
+          <td>${info.collage}</td>
+          <td>${info.department}</td>
+          <td>${info.depHead}</td>
+          <td>${info.yearHead}</td>
+          <td>${info.year}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function Filter() {
+      const genderValue = document.getElementById("filter-gender").value.toLowerCase();
+      const rows = document.querySelectorAll("#tableBody tr");
+      rows.forEach(row => {
+        const gender = row.children[4].textContent.toLowerCase();
+        row.style.display = (genderValue === "" || gender === genderValue) ? "" : "none";
+      });
+    }
+
+    function tableReset() {
+      document.getElementById("filter-gender").value = "";
+      Filter();
+    }
+
+    document.getElementById("filter-gender").addEventListener("change", Filter);
+
+    window.onload = loadTable;
+  </script>
+
+</body>
+</html>
