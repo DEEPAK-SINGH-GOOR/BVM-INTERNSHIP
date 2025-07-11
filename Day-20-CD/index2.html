@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+</head>
+
+<body>
+  <style>
+    * {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      /* font-size: 21px; */
+    }
+
+    span {
+      color: red;
+    }
+
+    .minDiv {
+      background-color: rgb(255, 255, 255);
+      /* width: 600px; */
+      margin: 10px;
+      padding: 20px;
+      border: 2px solid rgb(255, 255, 255);
+      box-shadow: 7px 4px 10px 13px rgb(216, 216, 216);
+      border-radius: 5px;
+    }
+
+    .formStyle {
+      text-align: left;
+    }
+
+    #form-Data {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .filter {
+      text-align: center;
+    }
+
+    #tablecss {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .inputStyle {
+      height: 40px;
+      width: 250PX;
+      /* text-align: center; */
+      border-radius: 5px;
+      border-color: rgb(226, 226, 226);
+    }
+
+    .inputStyle2 {
+      height: 40px;
+      width: 100%;
+      text-align: center;
+      border-radius: 5px;
+      border-color: rgb(226, 226, 226);
+    }
+
+    .filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 200PX;
+      margin-left: 15px;
+    }
+
+    .filterDiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    label {
+      margin-left: 10px;
+    }
+
+    .inputdiv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .h1Style {
+      text-align: center;
+    }
+
+    .input-style {
+      height: 50px;
+      width: 200px;
+      font-size: large;
+      background-color: rgb(109, 182, 0);
+      color: white;
+      border-radius: 5PX;
+      border-color: white;
+    }
+  </style>
+
+  <div class="formStyle">
+
+    <form id="form-Data">
+
+      <div class="minDiv">
+        <h1 class="h1Style">COLLEGE REGISTRATION FORM</h1>
+        <div class="secondary">
+          <label>Enter ID :</label>
+          <input class="inputStyle" type="number" placeholder="Enter ID" id="id" />
+          <span id="error_id"></span>
+
+          <label>Enter Name :</label>
+          <input class="inputStyle" type="text" placeholder="Enter Name" id="name" />
+          <span id="error_name"></span>
+        </div>
+        <br>
+        <div class="secondary">
+          <label>Last Email :</label>
+          <input class="inputStyle" type="email" placeholder="Enter Email" id="email" />
+          <span id="error_email"></span>
+
+          <label>Contact :</label>
+          <input class="inputStyle" type="number" placeholder="Enter Contact No" id="contact" />
+          <span id="error_contact"></span>
+        </div>
+        <br>
+        <div>
+          <label>Gender :</label>
+          <input type="radio" name="gender" value="male" />
+          <label>Male</label>
+          <input type="radio" name="gender" value="female" />
+          <label>Female</label>
+        </div>
+        <span id="error_gender"></span>
+        <br />
+        <div class="secondary">
+          <label>Add Year :</label>
+          <input class="inputStyle" type="text" placeholder="Enter Year " id="year" />
+          <span id="error_year"></span>
+
+
+          <label>Enter Merit :</label>
+          <input class="inputStyle" type="number" placeholder="Enter Merit" id="merit" />
+          <span id="error_merit"></span>
+
+        </div>
+        <br>
+        <div class="secondary">
+          <label>Add Cat :</label>
+          <input class="inputStyle" type="text" placeholder="Enter Merit" id="cat" />
+          <span id="error_cat"></span>
+
+          <label>Enter College Name :</label>
+          <input class="inputStyle" type="text" placeholder="Enter College Name" id="college" />
+          <span id="error_college"></span>
+        </div>
+        <br>
+        <label>Enter Department Name :</label>
+        <input class="inputStyle2" type="text" placeholder="Enter Department Name" id="department" />
+        <span id="error_department"></span>
+        <br /><br />
+
+        <label>Department Head :</label>
+        <input class="inputStyle2" type="text" placeholder="Enter Department Head Name" id="departmentHead" />
+        <span id="error_departmentHead"></span>
+        <br />
+        <div class="secondary">
+          <label>Year Head :</label>
+          <input class="inputStyle" type="text" placeholder="Enter Year Head Name" id="yearHead" />
+          <span id="error_yearHead"></span>
+
+          <label>Admission Year :</label>
+          <input class="inputStyle" type="number" placeholder="Enter Admission Year" id="admission" />
+          <span id="error_admission"></span>
+
+        </div>
+        <br><br>
+        <div class="inputdiv">
+          <input type="submit" value="SUBMIT" class="input-style" />
+        </div>
+        <br>
+    </form>
+    <br />
+  </div>
+  <br><br>
+  <!-- Filter -->
+  <div class="filterDiv">
+    <label>Select Option:</label>
+    <select id="filter-gender" class="filter">
+      <option value="">All Gender</option>
+      <option value="male">Male</option>
+      <option value="female">female</option>
+      <option value="other">Other</option>
+    </select>
+    <select id="filter-department" class="filter">
+      <option value="">All Department</option>
+      <option value="computer">Computer</option>
+      <option value="automobile">AutoMobile</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Electrical">Electrical</option>
+      <option value="civil">Civil</option>
+    </select>
+    <select id="filter-department" class="filter">
+      <option value="">All Department</option>
+      <option value="computer">Computer</option>
+      <option value="automobile">AutoMobile</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Electrical">Electrical</option>
+      <option value="civil">Civil</option>
+    </select>
+    <select id="filter-year" class="filter">
+      <option value="">All Year</option>
+      <option value="first">First</option>
+      <option value="second">Second</option>
+      <option value="third">third</option>
+    </select>
+
+    <select id="filter-Admission" class="filter">
+      <option value="">All Admission</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+    </select>
+
+    <select id="filter-Admission" class="filter">
+      <option value="">All Admission</option>
+      <option value="2019">2019</option>
+      <option value="2020">2020</option>
+      <option value="2021">2021</option>
+      <option value="2022">2022</option>
+      <option value="2023">2023</option>
+    </select>
+
+    <select id="filter-merit" class="filter">
+      <option value="">All Merit</option>
+      <option value="60">60-70</option>
+      <option value="70">70-80</option>
+      <option value="80">80-90</option>
+      <option value="90">90-100</option>
+    </select>
+  </div>
+  <br><br>
+  <!-- Table List -->
+  <h1 class="h1Style">REGISTRATION LIST</h1>
+  <br><br>
+  <div class="table table-striped d-flex justify-content-center" id="tablecss">
+    <table border="3" class="tableStyle">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Gender</th>
+          <th>AdYear</th>
+          <th>Merit</th>
+          <th>AdCat</th>
+          <th>College</th>
+          <th>Department</th>
+          <th>DepHead</th>
+          <th>YearHead</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody id="student-data">
+        <tr>
+          <td>2020_1</td>
+          <td>Student0_1</td>
+          <td>Student0_1@gmail.com</td>
+          <td>9024151211</td>
+          <td>Male</td>
+          <td>2020</td>
+          <td>76</td>
+          <td>Regular</td>
+          <td>vivek College</td>
+          <td>Civil</td>
+          <td>Vivek Thakor</td>
+          <td>M.S. Dhoni</td>
+          <td>First</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</body>
+
+</html>

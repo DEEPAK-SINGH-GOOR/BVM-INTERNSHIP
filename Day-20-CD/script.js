@@ -741,7 +741,7 @@ let data = [
     contact: "9879871050",
     gender: "Male",
     adYear: 2019,
-    merit: 71,
+    merit: 100,
     adCat: "Regular",
     collage: "L. E. Collage",
     department: "Computer",
@@ -765,6 +765,7 @@ let data = [
   //12   year: "Third",
   // },
 ];
+
 function loadTable() {
   const tableBody = document.getElementById("tableBody");
   tableBody.innerHTML = "";
@@ -795,52 +796,72 @@ function Filter() {
   const YearValue = document.getElementById("filter-Year").value;
   const admissionValue = document.getElementById("filter-admission").value;
   const meritValue = document.getElementById("filter-merit").value;
-
-  const rows = document.querySelectorAll("tr");
+  const meritValues = document.getElementById("meritInput").value;
+ 
+  const rows = document.querySelectorAll("tbody tr");
   
   rows.forEach((row) => {
     const gender = row.children[4].textContent.toLowerCase();
-    // console.log(gender);
     const department = row.children[9].textContent.toLowerCase();
-    // console.log(department);
     const yearAll = row.children[12].textContent.toLowerCase();
-    // console.log(yearAll);
     const admission = row.children[5].textContent;
-    // console.log(admission);
     const merit = row.children[6].textContent;
-    // if(merit >= 90){
-    //   merit.style.display = "";
-    // }
-    // else{
-    //   merit.style.display = "none";
-    // }
-  
-    const genderMatch = genderValue == "" || gender == genderValue; 
+    const inputMerit = row.children[6].textContent;
 
-    const departmentMatch = departmentValue == "" || department == departmentValue;
+    const genderMatch = genderValue === "" || gender === genderValue;
+    const departmentMatch = departmentValue === "" || department === departmentValue;
+    const yearMatch = YearValue === "" || yearAll === YearValue;
+    const admissionMatch = admissionValue === "" || admission === admissionValue;
+    const meritMatchInput  = meritValues === "" || inputMerit === meritValues;
 
-    const yearMatch = YearValue == "" || yearAll == YearValue;
+    if (meritValue !== 0 ) {
 
-    const admissionMatch = admissionValue == "" || admission == admissionValue;
-
-    // const meritMatch = meritValue ==="" || merit === meritValue;
-    const meritMatch1 = meritValue == "" || merit == meritValue;
-    console.log(meritMatch1);
-    
-    if ( genderMatch && departmentMatch && yearMatch && admissionMatch) {
+      switch (meritValue) {
+        case "":
+          meritMatch = merit >=0 && merit <=100 
+          break;
+        case "60":
+          meritMatch = merit >= 60 && merit <= 70;
+          break;
+        case "70":
+          meritMatch = merit >= 71 && merit <= 80;
+          break;
+        case "80":
+          meritMatch = merit >= 81 && merit <= 90;
+          break;
+        case "90":
+          meritMatch = merit >= 91 && merit <= 100;
+          break;
+      }
+    }
+    if (genderMatch && departmentMatch && yearMatch && admissionMatch && meritMatch && meritMatchInput) {
       row.style.display = "";
-    } 
-    else {
+    } else {
       row.style.display = "none";
     }
   });
 }
+
+  document.getElementById("meritInput").addEventListener("change", function (e) {
+    console.log('working');
+    
+    const serchData = e.target.value;
+    const filterData = data.filter((info) => {
+        const store =  info.merit.includes(serchData);        
+    });    
+    if (filterData) {
+      console.log(filterData);
+      search(filterData);
+    }
+  }); 
+
 
 document.getElementById("filter-gender").addEventListener("change", Filter);
 document.getElementById("filter-department").addEventListener("change", Filter);
 document.getElementById("filter-Year").addEventListener("change", Filter);
 document.getElementById("filter-admission").addEventListener("change", Filter);
 document.getElementById("filter-merit").addEventListener("change", Filter);
+document.getElementById("meritInput").addEventListener("change",Filter);
 
 function tableReset() {
   document.getElementById("filter-gender").value = "";
@@ -848,16 +869,13 @@ function tableReset() {
   document.getElementById("filter-Year").value = "";
   document.getElementById("filter-admission").value = "";
   document.getElementById("filter-merit").value = "";
+  document.getElementById("meritInput").value ="";
   Filter();
 }
-function downloadPDF(){
-  const {jsPDF} = window.jspdf;
-  const doc = new jsPDF();
 
-  doc.autoTable({
-    html:'#dataTable'
-  })
-  doc.save("styled_table.pdf");
-} 
-
+function downloadPDF() {
+  const doc = new window.jspdf.jsPDF();
+  doc.autoTable({ html: "#dataTable" });
+  doc.save("college_data.pdf");
+}
 loadTable();

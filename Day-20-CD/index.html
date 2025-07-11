@@ -70,6 +70,30 @@
         justify-content: center;
         align-items: center;
       }
+      #meritInput {
+        margin-left: 15px;
+        height: 60px;
+        width: 140px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+      }
+      #meritSubmit {
+        margin-left: 15px;
+        height: 60px;
+        width: 140px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -123,35 +147,35 @@
     </div>
     <div class="OtherFunction">
       <button class="reset" onclick="tableReset()">Reset All</button>
-      <a class="download" href="./image (1).pdf" download="">Download</a>
+      <a href="./list.pdf" download="">Download</a>
+      <input type="number" placeholder="Enter Merit " id="meritInput" />
+      <input type="submit" id="meritSubmit" />
     </div>
     <div class="centerTable">
       <table border="2" id="dataTable">
         <thead>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Contact</th>
-          <th>Gender</th>
-          <th>Ad Year</th>
-          <th>Merit</th>
-          <th>Ad Cat</th>
-          <th>College</th>
-          <th>Department</th>
-          <th>Dep Head</th>
-          <th>Year Head</th>
-          <th>Year</th>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Gender</th>
+            <th>Ad Year</th>
+            <th>Merit</th>
+            <th>Ad Cat</th>
+            <th>College</th>
+            <th>Department</th>
+            <th>Dep Head</th>
+            <th>Year Head</th>
+            <th>Year</th>
+          </tr>
         </thead>
         <tbody id="tableBody"></tbody>
       </table>
     </div>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.6.347/pdf.min.js"
-      integrity="sha512-Z8CqofpIcnJN80feS2uccz+pXWgZzeKxDsDNMD/dJ6997/LSRY+W4NmEt9acwR+Gt9OHN0kkI1CTianCwoqcjQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
+    <!-- JS Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
