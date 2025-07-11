@@ -51,7 +51,7 @@
 
     .inputStyle {
       height: 40px;
-      width: 250PX;
+      width: 200PX;
       /* text-align: center; */
       border-radius: 5px;
       border-color: rgb(226, 226, 226);
@@ -70,8 +70,9 @@
       justify-content: center;
       align-items: center;
       height: 40px;
-      width: 200PX;
+      width: 150px;
       margin-left: 15px;
+      font-size: large;
     }
 
     .filterDiv {
@@ -98,10 +99,14 @@
       height: 50px;
       width: 200px;
       font-size: large;
-      background-color: rgb(109, 182, 0);
+      background-color: rgb(111 185 0);
       color: white;
       border-radius: 5PX;
       border-color: white;
+    }
+
+    option {
+      font-size: large;
     }
   </style>
 
@@ -121,6 +126,7 @@
           <span id="error_name"></span>
         </div>
         <br>
+
         <div class="secondary">
           <label>Last Email :</label>
           <input class="inputStyle" type="email" placeholder="Enter Email" id="email" />
@@ -131,6 +137,7 @@
           <span id="error_contact"></span>
         </div>
         <br>
+
         <div>
           <label>Gender :</label>
           <input type="radio" name="gender" value="male" />
@@ -140,28 +147,28 @@
         </div>
         <span id="error_gender"></span>
         <br />
+
         <div class="secondary">
           <label>Add Year :</label>
           <input class="inputStyle" type="text" placeholder="Enter Year " id="year" />
           <span id="error_year"></span>
-
-
           <label>Enter Merit :</label>
           <input class="inputStyle" type="number" placeholder="Enter Merit" id="merit" />
           <span id="error_merit"></span>
 
         </div>
         <br>
+
         <div class="secondary">
           <label>Add Cat :</label>
           <input class="inputStyle" type="text" placeholder="Enter Merit" id="cat" />
           <span id="error_cat"></span>
-
           <label>Enter College Name :</label>
           <input class="inputStyle" type="text" placeholder="Enter College Name" id="college" />
           <span id="error_college"></span>
         </div>
         <br>
+
         <label>Enter Department Name :</label>
         <input class="inputStyle2" type="text" placeholder="Enter Department Name" id="department" />
         <span id="error_department"></span>
@@ -171,6 +178,7 @@
         <input class="inputStyle2" type="text" placeholder="Enter Department Head Name" id="departmentHead" />
         <span id="error_departmentHead"></span>
         <br />
+
         <div class="secondary">
           <label>Year Head :</label>
           <input class="inputStyle" type="text" placeholder="Enter Year Head Name" id="yearHead" />
@@ -179,13 +187,12 @@
           <label>Admission Year :</label>
           <input class="inputStyle" type="number" placeholder="Enter Admission Year" id="admission" />
           <span id="error_admission"></span>
-
         </div>
-        <br><br>
+        <br>
+
         <div class="inputdiv">
           <input type="submit" value="SUBMIT" class="input-style" />
         </div>
-        <br>
     </form>
     <br />
   </div>
