@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      text-align: center;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    input, select, button {
+      padding: 8px;
+      font-size: 14px;
+    }
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Add Student</h2>
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="text" id="contact" placeholder="Contact" required />
+    <select id="gender" required>
+      <option value="">Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <input type="number" id="adYear" placeholder="Admission Year" required />
+    <input type="number" id="merit" placeholder="Merit" required />
+    <input type="text" id="adCat" placeholder="Admission Category" required />
+    <input type="text" id="collage" placeholder="College" required />
+    <input type="text" id="department" placeholder="Department" required />
+    <input type="text" id="depHead" placeholder="Department Head" required />
+    <input type="text" id="yearHead" placeholder="Year Head" required />
+    <select id="year" required>
+      <option value="">Year</option>
+      <option value="First">First</option>
+      <option value="Second">Second</option>
+      <option value="Third">Third</option>
+    </select>
+    <button type="submit">Add Student</button>
+  </form>
+
+  <h2>Student Table</h2>
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Gender</th>
+        <th>Ad. Year</th>
+        <th>Merit</th>
+        <th>Ad. Category</th>
+        <th>College</th>
+        <th>Department</th>
+        <th>Dep. Head</th>
+        <th>Year Head</th>
+        <th>Year</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+
+  <script>
+    let data = [];
+
+    function loadTable() {
+      const tableBody = document.getElementById("tableBody");
+      tableBody.innerHTML = "";
+      data.forEach((info, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${info.id}</td>
+          <td>${info.name}</td>
+          <td>${info.email}</td>
+          <td>${info.contact}</td>
+          <td>${info.gender}</td>
+          <td>${info.adYear}</td>
+          <td>${info.merit}</td>
+          <td>${info.adCat}</td>
+          <td>${info.collage}</td>
+          <td>${info.department}</td>
+          <td>${info.depHead}</td>
+          <td>${info.yearHead}</td>
+          <td>${info.year}</td>
+          <td><button onclick="deleteUser(${index})">Delete</button></td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function deleteUser(index) {
+      if (confirm("Are you sure to delete this student?")) {
+        data.splice(index, 1);
+        loadTable();
+      }
+    }
+
+    document.getElementById("userForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const newUser = {
+        id: `${document.getElementById("adYear").value}_${data.length + 1}`,
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        contact: document.getElementById("contact").value,
+        gender: document.getElementById("gender").value,
+        adYear: parseInt(document.getElementById("adYear").value),
+        merit: parseInt(document.getElementById("merit").value),
+        adCat: document.getElementById("adCat").value,
+        collage: document.getElementById("collage").value,
+        department: document.getElementById("department").value,
+        depHead: document.getElementById("depHead").value,
+        yearHead: document.getElementById("yearHead").value,
+        year: document.getElementById("year").value,
+      };
+
+      data.push(newUser);
+      loadTable();
+      this.reset();
+    });
+
+    loadTable();
+  </script>
+</body>
+</html>
