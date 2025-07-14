@@ -1,149 +1,594 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Student Management</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      text-align: center;
-    }
-    th, td {
-      padding: 10px;
-      border: 1px solid #ccc;
-    }
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    input, select, button {
-      padding: 8px;
-      font-size: 14px;
-    }
-    button {
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <style>
+        * {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            /* font-size: 21px; */
+        }
 
-  <h2>Add Student</h2>
-  <form id="userForm">
-    <input type="text" id="name" placeholder="Name" required />
-    <input type="email" id="email" placeholder="Email" required />
-    <input type="text" id="contact" placeholder="Contact" required />
-    <select id="gender" required>
-      <option value="">Gender</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-    </select>
-    <input type="number" id="adYear" placeholder="Admission Year" required />
-    <input type="number" id="merit" placeholder="Merit" required />
-    <input type="text" id="adCat" placeholder="Admission Category" required />
-    <input type="text" id="collage" placeholder="College" required />
-    <input type="text" id="department" placeholder="Department" required />
-    <input type="text" id="depHead" placeholder="Department Head" required />
-    <input type="text" id="yearHead" placeholder="Year Head" required />
-    <select id="year" required>
-      <option value="">Year</option>
-      <option value="First">First</option>
-      <option value="Second">Second</option>
-      <option value="Third">Third</option>
-    </select>
-    <button type="submit">Add Student</button>
-  </form>
+        span {
+            color: red;
+        }
 
-  <h2>Student Table</h2>
-  <table id="dataTable">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Contact</th>
-        <th>Gender</th>
-        <th>Ad. Year</th>
-        <th>Merit</th>
-        <th>Ad. Category</th>
-        <th>College</th>
-        <th>Department</th>
-        <th>Dep. Head</th>
-        <th>Year Head</th>
-        <th>Year</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody id="tableBody"></tbody>
-  </table>
+        .minDiv {
+            background-color: rgb(255, 255, 255);
+            /* width: 600px; */
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid rgb(255, 255, 255);
+            box-shadow: 7px 4px 10px 13px rgb(235, 235, 235);
+            border-radius: 5px;
+        }
 
-  <script>
-    let data = [];
+        .formStyle {
+            text-align: left;
+        }
 
-    function loadTable() {
-      const tableBody = document.getElementById("tableBody");
-      tableBody.innerHTML = "";
-      data.forEach((info, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${info.id}</td>
-          <td>${info.name}</td>
-          <td>${info.email}</td>
-          <td>${info.contact}</td>
-          <td>${info.gender}</td>
-          <td>${info.adYear}</td>
-          <td>${info.merit}</td>
-          <td>${info.adCat}</td>
-          <td>${info.collage}</td>
-          <td>${info.department}</td>
-          <td>${info.depHead}</td>
-          <td>${info.yearHead}</td>
-          <td>${info.year}</td>
-          <td><button onclick="deleteUser(${index})">Delete</button></td>
-        `;
-        tableBody.appendChild(row);
-      });
-    }
+        #form-Data {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    function deleteUser(index) {
-      if (confirm("Are you sure to delete this student?")) {
-        data.splice(index, 1);
+        .filter {
+            text-align: center;
+        }
+
+        #tablecss {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inputStyle {
+            height: 40px;
+            width: 200PX;
+            text-align: center;
+            border-radius: 5px;
+            border-color: rgb(226, 226, 226);
+            /* background-color: #000; */
+        }
+
+        .inputStyle2 {
+            height: 40px;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+            border-color: rgb(226, 226, 226);
+
+        }
+
+        .inputStyle3 {
+            height: 50px;
+            width: 200px;
+            text-align: center;
+            border-radius: 5px;
+            border-color: rgb(255, 255, 255);
+            font-size: 20px;
+            margin-left: 20px;
+            background-color: rgb(228, 228, 228);
+            color: rgb(0, 0, 0);
+        }
+
+        .filter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 150px;
+            margin-left: 15px;
+            font-size: large;
+        }
+
+        .filterDiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            margin-left: 10px;
+            margin-bottom: 0px;
+        }
+
+        .inputdiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .h1Style {
+            font-family: "Libre Caslon Display", serif;
+            font-size: xx-large;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .input-style {
+            height: 45px;
+            width: 100%;
+            font-size: large;
+            background-color: rgb(0, 83, 179);
+            color: rgb(255, 255, 255);
+            border-radius: 5PX;
+            border-color: white;
+            border: 0px solid red;
+        }
+
+        option {
+            font-size: large;
+        }
+
+        .secondary2 {
+            margin-left: 30px;
+        }
+
+        .PDF {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        select {
+            cursor: pointer;
+        }
+    </style>
+
+    <div class="formStyle">
+        <form id="form-Data">
+            <div class="minDiv">
+                <h1 class="h1Style">COLLEGE REGISTRATION FORM</h1><br>
+                <div class="secondary form-row ">
+                    <div class="secondary2">
+                        <label>Enter ID :</label>
+                        <input class="inputStyle form-control" type="number" placeholder="Enter ID" id="id" />
+                        <span id="error_id"></span>
+                        <br>
+                        <label>Enter Name :</label>
+                        <input class="inputStyle form-control" type="text" placeholder="Enter Name" id="name" />
+                        <span id="error_name"></span>
+
+                    </div>
+                    <div class="secondary2">
+                        <label>Last Email :</label>
+                        <input class="inputStyle form-control" type="email" placeholder="Enter Email" id="email" />
+                        <span id="error_email"></span>
+                        <br>
+                        <label>Contact :</label>
+                        <input class="inputStyle form-control" type="number" placeholder="Enter Contact No"
+                            id="contact" />
+                        <span id="error_contact"></span>
+                    </div>
+                </div>
+
+                <hr>
+                <div class="secondary form-row">
+                    <div class="secondary2">
+                        <label>Select Gender :</label>
+                        <select id="gender" class="inputStyle form-control">
+                            <option value="" selected disabled hidden>Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        <span id="error_gender"></span>
+                        <br>
+                        <label>Add Year :</label>
+                        <input class="inputStyle form-control" type="text" placeholder="Enter Year " id="adYear" />
+                        <span id="error_year"></span>
+                    </div>
+
+                    <div class="secondary2">
+                        <label>Enter Merit :</label>
+                        <input class="inputStyle form-control" type="number" placeholder="Enter Merit" id="merit" />
+                        <span id="error_merit"></span>
+                        <br>
+                        <label>Add Cat :</label>
+                        <input class="inputStyle form-control" type="text" placeholder="Enter Merit" id="adCat" />
+                        <span id="error_cat"></span>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="secondary form-row">
+                    <div class="secondary2">
+
+                        <label>Enter Department Name :</label>
+
+                        <select id="department" class="form-control ">
+                            <option value="" selected disabled hidden>All Department</option>
+                            <option value="computer">Computer</option>
+                            <option value="automobile">AutoMobile</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="Electrical">Electrical</option>
+                            <option value="civil">Civil</option>
+                        </select>
+                        <span id="error_department"></span>
+                        <br>
+
+                        <label>Department Head Name:</label>
+                        <input class="inputStyle2 form-control" type="text" placeholder="Enter Department Head "
+                            id="depHead" />
+                        <span id="error_departmentHead"></span>
+                    </div>
+
+                    <div class="secondary2">
+                        <label>Year Head :</label>
+                        <input class="inputStyle  form-control" type="text" placeholder="Enter Year Head Name"
+                            id="yearHead" />
+                        <span id="error_yearHead"></span>
+                        <br>
+                        <label>Year :</label>
+                        <select id="year" class="inputStyle form-control">
+                            <option value="" selected disabled hidden>Year</option>
+                            <option value="First">First</option>
+                            <option value="Second">Second</option>
+                            <option value="Third">Third</option>
+                        </select>
+                        <span id="error_admission"></span>
+                    </div>
+                </div>
+                <hr>
+                <label>Enter College Name :</label>
+                <input class="inputStyle2 form-control" type="text" placeholder="Enter College Name" id="collage" />
+                <span id="error_college"></span>
+                <br>
+                <div class="inputdiv">
+                    <input type="submit" value="SUBMIT" class=" input-style" />
+                </div>
+        </form>
+        <br />
+    </div>
+    <br>
+    <div class="PDF">
+        <button onclick="downloadPDF()" class="inputStyle3">Download PDF</button>
+        <button onclick="tableReset()" class="inputStyle3">Reset All</button>
+        <input type="number" placeholder="Enter Merit" class="inputStyle3" id="meritInput">
+    </div>
+    <br>
+    <!-- Filter -->
+    <div class="filterDiv">
+        <label>Select Option:</label>
+        <select id="filter-gender" class="filter">
+            <option value="">All Gender</option>
+            <option value="male">Male</option>
+            <option value="female">female</option>
+        </select>
+        <select id="filter-department" class="filter">
+            <option value="">All Department</option>
+            <option value="computer">Computer</option>
+            <option value="automobile">AutoMobile</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Electrical">Electrical</option>
+            <option value="civil">Civil</option>
+        </select>
+
+        <select id="filter-year" class="filter">
+            <option value="">All Year</option>
+            <option value="first">First</option>
+            <option value="second">Second</option>
+            <option value="third">third</option>
+        </select>
+
+        <select id="filter-Admission" class="filter">
+            <option value="">All Admission</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+        </select>
+
+        <select id="filter-merit" class="filter">
+            <option value="">All Merit</option>
+            <option value="60">60-70</option>
+            <option value="70">70-80</option>
+            <option value="80">80-90</option>
+            <option value="90">90-100</option>
+        </select>
+    </div>
+    <br><br>
+    <!-- Table List -->
+    <h1 class="h1Style">REGISTRATION LIST</h1>
+    <br>
+    <div class="table table-striped d-flex justify-content-center" id="tablecss">
+        <table border="3" class="tableStyle table-striped" id="tableData">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Gender</th>
+                    <th>AdYear</th>
+                    <th>Merit</th>
+                    <th>AdCat</th>
+                    <th>College</th>
+                    <th>Department</th>
+                    <th>DepHead</th>
+                    <th>YearHead</th>
+                    <th>Year</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="student-data">
+
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        let data = [];
+
+        function loadLocalStorage() {
+            data = JSON.parse(localStorage.getItem("students")) || [];
+        }
+
+        function saveLocalStorage() {
+            localStorage.setItem("students", JSON.stringify(data));
+            console.log("Saved:", data);
+        }
+
+        function loadTable() {
+            const tableBody = document.getElementById("student-data");
+            tableBody.innerHTML = "";
+            data.forEach((info, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+      <td>${info.id}</td>
+      <td>${info.name}</td>
+      <td>${info.email}</td>
+      <td>${info.contact}</td>
+      <td>${info.gender}</td>
+      <td>${info.adYear}</td>
+      <td>${info.merit}</td>
+      <td>${info.adCat}</td>
+      <td>${info.collage}</td>
+      <td>${info.department}</td>
+      <td>${info.depHead}</td>
+      <td>${info.yearHead}</td>
+      <td>${info.year}</td>
+      <td><button onclick="deleteUser(${index})" class="btn btn-danger">Delete</button></td>
+    `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        function deleteUser(index) {
+            data.splice(index, 1);
+            saveLocalStorage(); 
+            loadTable();
+        }
+
+        document.getElementById("form-Data").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const id = document.getElementById("id");
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const contact = document.getElementById("contact");
+            const gender = document.getElementById("gender");
+            const adYear = document.getElementById("adYear");
+            const merit = document.getElementById("merit");
+            const adCat = document.getElementById("adCat");
+            const collage = document.getElementById("collage");
+            const department = document.getElementById("department");
+            const depHead = document.getElementById("depHead");
+            const yearHead = document.getElementById("yearHead");
+            const year = document.getElementById("year");
+
+            const error_id = document.getElementById("error_id");
+            const error_name = document.getElementById("error_name");
+            const error_email = document.getElementById("error_email");
+            const error_contact = document.getElementById("error_contact");
+            const error_gender = document.getElementById("error_gender");
+            const error_year = document.getElementById("error_year");
+            const error_merit = document.getElementById("error_merit");
+            const error_cat = document.getElementById("error_cat");
+            const error_department = document.getElementById("error_department");
+            const error_departmentHead = document.getElementById("error_departmentHead");
+            const error_yearHead = document.getElementById("error_yearHead");
+            const error_admission = document.getElementById("error_admission");
+            const error_college = document.getElementById("error_college");
+
+            error_id.textContent = "";
+            error_name.textContent = "";
+            error_email.textContent = "";
+            error_contact.textContent = "";
+            error_gender.textContent = "";
+            error_year.textContent = "";
+            error_merit.textContent = "";
+            error_cat.textContent = "";
+            error_department.textContent = "";
+            error_departmentHead.textContent = "";
+            error_yearHead.textContent = "";
+            error_admission.textContent = "";
+            error_college.textContent = "";
+
+            let isValid = true;
+
+            if (!id.value) {
+                error_id.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!name.value) {
+                error_name.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!email.value) {
+                error_email.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!contact.value) {
+                error_contact.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!gender.value) {
+                error_gender.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!adYear.value) {
+                error_admission.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!merit.value) {
+                error_merit.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!adCat.value) {
+                error_cat.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!collage.value) {
+                error_college.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!department.value) {
+                error_department.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!depHead.value) {
+                error_departmentHead.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!yearHead.value) {
+                error_yearHead.textContent = "Required !!";
+                isValid = false;
+            }
+            if (!year.value) {
+                error_year.textContent = "Required !!";
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            const newUser = {
+                id: id.value,
+                name: name.value,
+                email: email.value,
+                contact: contact.value,
+                gender: gender.value,
+                adYear: adYear.value,
+                merit: merit.value,
+                adCat: adCat.value,
+                collage: collage.value,
+                department: department.value,
+                depHead: depHead.value,
+                yearHead: yearHead.value,
+                year: year.value,
+            };
+
+            data.push(newUser);
+            saveLocalStorage(); 
+            loadTable();
+            document.getElementById("form-Data").reset();
+        });
+        loadLocalStorage();
         loadTable();
-      }
-    }
 
-    document.getElementById("userForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+        function downloadPDF() {
+            const doc = new window.jspdf.jsPDF();
+            doc.autoTable({ html: "#tableData" });
+            doc.save("college_data.pdf");
+        }
 
-      const newUser = {
-        id: `${document.getElementById("adYear").value}_${data.length + 1}`,
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        contact: document.getElementById("contact").value,
-        gender: document.getElementById("gender").value,
-        adYear: parseInt(document.getElementById("adYear").value),
-        merit: parseInt(document.getElementById("merit").value),
-        adCat: document.getElementById("adCat").value,
-        collage: document.getElementById("collage").value,
-        department: document.getElementById("department").value,
-        depHead: document.getElementById("depHead").value,
-        yearHead: document.getElementById("yearHead").value,
-        year: document.getElementById("year").value,
-      };
+        function Filter() {
+            const genderValue = document.getElementById("filter-gender").value;
+            const departmentValue = document.getElementById("filter-department").value;
+            const YearValue = document.getElementById("filter-year").value;
+            const admissionValue = document.getElementById("filter-Admission").value;
+            const meritValue = document.getElementById("filter-merit").value;
+            const meritValues = document.getElementById("meritInput").value;
 
-      data.push(newUser);
-      loadTable();
-      this.reset();
-    });
+            const rows = document.querySelectorAll("tbody tr");
 
-    loadTable();
-  </script>
+            rows.forEach((row) => {
+                const gender = row.children[4].textContent.toLowerCase();
+                const department = row.children[9].textContent.toLowerCase();
+                const yearAll = row.children[12].textContent.toLowerCase();
+                const admission = row.children[5].textContent;
+                const merit = row.children[6].textContent;
+                const inputMerit = row.children[6].textContent;
+
+                const genderMatch = genderValue === "" || gender === genderValue;
+                const departmentMatch = departmentValue === "" || department === departmentValue;
+                const yearMatch = YearValue === "" || yearAll === YearValue;
+                const admissionMatch = admissionValue === "" || admission === admissionValue;
+                const meritMatchInput = meritValues === "" || inputMerit === meritValues;
+
+                if (meritValue !== 0) {
+
+                    switch (meritValue) {
+                        case "":
+                            meritMatch = merit >= 0 && merit <= 100
+                            break;
+                        case "60":
+                            meritMatch = merit >= 60 && merit <= 70;
+                            break;
+                        case "70":
+                            meritMatch = merit >= 71 && merit <= 80;
+                            break;
+                        case "80":
+                            meritMatch = merit >= 81 && merit <= 90;
+                            break;
+                        case "90":
+                            meritMatch = merit >= 91 && merit <= 100;
+                            break;
+                    }
+                }
+                if (genderMatch && departmentMatch && yearMatch && admissionMatch && meritMatch && meritMatchInput) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        document.getElementById("meritInput").addEventListener("change", function (e) {
+            console.log('working');
+
+            const searchData = e.target.value;
+            const filterData = data.filter((info) => {
+                const store = info.merit.includes(searchData);
+            });
+            if (filterData) {
+                console.log(filterData);
+                search(filterData);
+            }
+        });
+
+        function tableReset() {
+            document.getElementById("filter-gender").value = "";
+            document.getElementById("filter-department").value = "";
+            document.getElementById("filter-year").value = "";
+            document.getElementById("filter-Admission").value = "";
+            document.getElementById("filter-merit").value = "";
+            document.getElementById("meritInput").value = "";
+            Filter();
+        }
+
+        document.getElementById("filter-gender").addEventListener("change", Filter);
+        document.getElementById("filter-department").addEventListener("change", Filter);
+        document.getElementById("filter-year").addEventListener("change", Filter);
+        document.getElementById("filter-Admission").addEventListener("change", Filter);
+        document.getElementById("filter-merit").addEventListener("change", Filter);
+        document.getElementById("meritInput").addEventListener("change", Filter);
+
+    </script>
 </body>
+
 </html>
