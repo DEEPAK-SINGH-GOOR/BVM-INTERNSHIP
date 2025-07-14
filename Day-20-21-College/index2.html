@@ -146,6 +146,7 @@
       cursor: pointer;
     }
   </style>
+
   <div class="formStyle">
     <form id="form-Data">
       <div class="minDiv">
@@ -176,7 +177,7 @@
         <div class="secondary form-row">
           <div class="secondary2">
             <label>Select Gender :</label>
-            <select id="gender" required class="inputStyle form-control">
+            <select id="gender" class="inputStyle form-control">
               <option value="" selected disabled hidden>Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -196,16 +197,15 @@
             <label>Add Cat :</label>
             <input class="inputStyle form-control" type="text" placeholder="Enter Merit" id="adCat" />
             <span id="error_cat"></span>
-
           </div>
         </div>
         <hr>
 
         <div class="secondary form-row">
           <div class="secondary2">
-            <!-- old -->
+
             <label>Enter Department Name :</label>
-            <!-- new -->
+
             <select id="department" class="form-control ">
               <option value="" selected disabled hidden>All Department</option>
               <option value="computer">Computer</option>
@@ -220,7 +220,6 @@
             <label>Department Head Name:</label>
             <input class="inputStyle2 form-control" type="text" placeholder="Enter Department Head " id="depHead" />
             <span id="error_departmentHead"></span>
-
           </div>
 
           <div class="secondary2">
@@ -229,14 +228,13 @@
             <span id="error_yearHead"></span>
             <br>
             <label>Year :</label>
-            <select id="year" required class="inputStyle form-control">
+            <select id="year" class="inputStyle form-control">
               <option value="" selected disabled hidden>Year</option>
               <option value="First">First</option>
               <option value="Second">Second</option>
               <option value="Third">Third</option>
             </select>
             <span id="error_admission"></span>
-
           </div>
         </div>
         <hr>
@@ -254,6 +252,7 @@
   <div class="PDF">
     <button onclick="downloadPDF()" class="inputStyle3">Download PDF</button>
     <button onclick="tableReset()" class="inputStyle3">Reset All</button>
+    <input type="number" placeholder="Enter Merit" class="inputStyle3" id="meritInput">
   </div>
   <br>
   <!-- Filter -->
@@ -321,6 +320,7 @@
         </tr>
       </thead>
       <tbody id="student-data">
+
       </tbody>
     </table>
   </div>
@@ -351,7 +351,7 @@
           <td>${info.depHead}</td>
           <td>${info.yearHead}</td>
           <td>${info.year}</td>
-          <td><button onclick="deleteUser(${index})">Delete</button></td>
+          <td><button onclick="deleteUser(${index})" class="btn btn-danger">Delete</button></td>
         `;
         tableBody.appendChild(row);
       });
@@ -361,7 +361,23 @@
       data.splice(index, 1);
       loadTable();
     }
-
+    function loadLocalStorage() {
+      const data = JSON.parse(localStorage.getItem("students")) || [];
+      students = data;
+      loadTable();
+      console.log('LocalStorage Get');
+    }
+    function saveLocalStorage() {
+      localStorage.setItem("students", JSON.stringify(data));
+      console.log('LocalStorage save');
+    }
+    
+      // JSON.parse(localStorage.getItem("students")) || [];
+      // data = data;
+      // loadTable();
+     
+      // localStorage.setItem("students", JSON.stringify(data));
+    
     document.getElementById("form-Data").addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -380,17 +396,63 @@
         yearHead: document.getElementById("yearHead").value,
         year: document.getElementById("year").value,
       };
-      // console.log(id.value);
-      if (id.value === "") {
-        alert('working')
+
+      // Working 
+      error_id.textContent = "";
+      error_name.textContent = "";
+      error_email.textContent = "";
+      error_contact.textContent = "";
+      error_gender.textContent = "";
+      error_year.textContent = "";
+      error_merit.textContent = "";
+      error_cat.textContent = "";
+      error_department.textContent = "";
+      error_departmentHead.textContent = "";
+      error_yearHead.textContent = "";
+      error_admission.textContent = "";
+      error_college.textContent = "";
+
+
+      if (!id.value && !email.value) {
+        error_id.textContent = "Required !!", error_email.textContent = "Required !!";
       }
+      // if (!name.value) {
+      //   error_name.textContent = "Required !!"
+      // }
+      //   if (!id.value && !name.value && !contact.value && !gender.value 
+      // && !adYear.textContent && !merit.value && !adCat.value && !collage.value 
+      // && !department.value && !depHead.value && !yearHead && !year.value) {
+      //   return error_id.textContent = "Required !!", error_name.textContent = "Required !!" , error_email.textContent = "Required !!"
+      // }
+
+      // let isValid = true;
+      // if (!id.value) {
+      //   error_id.textContent = "Required !!"; 
+      // }
+      // if (!name.value) {
+      //   error_name.textContent = "Required !!";
+      // }
+      // if(!email.value){
+      //   error_email.textContent = "Required !!"; 
+      // }
+      // if(!contact.value){
+      //   error_contact.textContent = "Required !!"
+      // }
+      // if(!gender.value){
+      //   error_gender.textContent = "Required !!"
+      // }
+      // if (!isValid) return;
+
+
+      // ---------------
       data.push(newUser);
       loadTable();
       document.getElementById("form-Data").reset()
     });
     // console.log(data);
     loadTable();
-
+    // loadLocalStorage()
+    saveLocalStorage()
     function downloadPDF() {
       const doc = new window.jspdf.jsPDF();
       doc.autoTable({ html: "#tableData" });
@@ -403,7 +465,7 @@
       const YearValue = document.getElementById("filter-year").value;
       const admissionValue = document.getElementById("filter-Admission").value;
       const meritValue = document.getElementById("filter-merit").value;
-      // const meritValues = document.getElementById("meritInput").value;
+      const meritValues = document.getElementById("meritInput").value;
 
       const rows = document.querySelectorAll("tbody tr");
 
@@ -413,13 +475,13 @@
         const yearAll = row.children[12].textContent.toLowerCase();
         const admission = row.children[5].textContent;
         const merit = row.children[6].textContent;
-        // const inputMerit = row.children[6].textContent;
+        const inputMerit = row.children[6].textContent;
 
         const genderMatch = genderValue === "" || gender === genderValue;
         const departmentMatch = departmentValue === "" || department === departmentValue;
         const yearMatch = YearValue === "" || yearAll === YearValue;
         const admissionMatch = admissionValue === "" || admission === admissionValue;
-        // const meritMatchInput = meritValues === "" || inputMerit === meritValues;
+        const meritMatchInput = meritValues === "" || inputMerit === meritValues;
 
         if (meritValue !== 0) {
 
@@ -441,7 +503,7 @@
               break;
           }
         }
-        if (genderMatch && departmentMatch && yearMatch && admissionMatch && meritMatch) {
+        if (genderMatch && departmentMatch && yearMatch && admissionMatch && meritMatch && meritMatchInput) {
           row.style.display = "";
         } else {
           row.style.display = "none";
@@ -449,18 +511,18 @@
       });
     }
 
-    // document.getElementById("meritInput").addEventListener("change", function (e) {
-    //   console.log('working');
+    document.getElementById("meritInput").addEventListener("change", function (e) {
+      console.log('working');
 
-    //   const serchData = e.target.value;
-    //   const filterData = data.filter((info) => {
-    //     const store = info.merit.includes(serchData);
-    //   });
-    //   if (filterData) {
-    //     console.log(filterData);
-    //     search(filterData);
-    //   }
-    // });
+      const searchData = e.target.value;
+      const filterData = data.filter((info) => {
+        const store = info.merit.includes(searchData);
+      });
+      if (filterData) {
+        console.log(filterData);
+        search(filterData);
+      }
+    });
 
     function tableReset() {
       document.getElementById("filter-gender").value = "";
@@ -468,7 +530,7 @@
       document.getElementById("filter-year").value = "";
       document.getElementById("filter-Admission").value = "";
       document.getElementById("filter-merit").value = "";
-      // document.getElementById("meritInput").value = "";
+      document.getElementById("meritInput").value = "";
       Filter();
     }
 
@@ -477,7 +539,7 @@
     document.getElementById("filter-year").addEventListener("change", Filter);
     document.getElementById("filter-Admission").addEventListener("change", Filter);
     document.getElementById("filter-merit").addEventListener("change", Filter);
-    // document.getElementById("meritInput").addEventListener("change", Filter);
+    document.getElementById("meritInput").addEventListener("change", Filter);
 
   </script>
 </body>
