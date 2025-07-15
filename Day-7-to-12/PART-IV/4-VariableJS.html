@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Variable , String , Arrays</title>
-  </head>
 
-  <body>
-    <!-- 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variable , String , Arrays</title>
+</head>
+
+<body>
+  <!-- 
     3. Using JavaScript Variables, Strings, and Arrays - 2:40 to 3:40
 
-    ● Array methods:
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Obje
-    cts/Array
-    ● Object methods:
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Obje
-    cts/Object
-
-
     1) What is Variable ?
-    A variable is a Container for storing data value (like number , string etc )
+    A variable is a Container for storing data value (like number , string , boolean , Bigint , symbol , undefined , null  etc )
 
     2) Declaring variable ?
     (i) var Function-Scope
     (ii) let (BlockScope)
     (iii) const (BlockScope)
 
-    3) Operators in JS
+    3) Operators in JS  && Expression 
+    Expression Example :- const a = 1 + 2 * 3;
     (i) Arithmetic : + - * / % ** ++ -- ? 
     (ii) Assignment : = , += , -= , *= , /= , %= ,**=
     (iii) Comparision : == , != , === , !== , > , < ,<=,>= , ?
@@ -47,9 +41,30 @@
     let useSubString = phoneNo.subString(0,3)
     document.write(useSubString) 
 
+    6) Using Numeric Array
+    const Arr = [20,25,35,10,5,];
+
+    7) Using String Array
+    const ArrWithAlfa = ["C","D","A","B",];
+    ArrWithAlfa.sort()
+    ArrWithAlfa.reverse()
+    console.log(ArrWithAlfa);
+
+    8)Sorting a Numeric Array
+    Sort For Ascending
+    const Arr = [20,25,35,10,5,];
+    const newArr = Arr.sort((a,b)=>a-b);
+    console.log(newArr);
+
+    Sort For Descending
+    const Arr = [5,10,15,20,25];
+    const newArr = Arr.sort((a,b)=>b-a);
+    console.log(newArr);
+ 
     // Output 
     902
  -->
-  </body>
-  <script></script>
+</body>
+<script></script>
+
 </html>

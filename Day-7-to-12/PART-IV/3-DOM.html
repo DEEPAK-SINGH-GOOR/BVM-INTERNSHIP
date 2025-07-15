@@ -8,8 +8,14 @@
 </head>
 
 <body>
-    <button id="title"><h1>Click</h1></button>
+    <button id="title">
+        <h1>Click</h1>
+    </button>
     <!-- 
+    (i) Understanding the Document Object Model (DOM)
+        
+    (vi) More About the DOM Structure
+    
     1) What is Dom
     DOM stands for Document Object Model. It’s a tree-like structure created by the browser when it loads an HTML page, 
     and JavaScript uses it to interact with and change the content, structure, or style of a web page dynamically.
@@ -25,6 +31,7 @@
             </body>
         </body>
     </html>
+    
 
     3) Commom DOM Method In JavaScript
     (i) getElementById
@@ -59,14 +66,14 @@
     creating new Elements(createElement)
     Creating & appending text (createTextNode)
     -->
-    
+
 </body>
 <script>
 
     document.getElementById("title").innerText = "Hello, Deepak!";
     document.getElementById("title").style.color = "blue";
     document.getElementById("title").innerHTML = "<h1>Welcome</h1>";
-    document.getElementById("title").addEventListener("click",function(){
+    document.getElementById("title").addEventListener("click", function () {
         alert("Good Morning")
     })
 </script>

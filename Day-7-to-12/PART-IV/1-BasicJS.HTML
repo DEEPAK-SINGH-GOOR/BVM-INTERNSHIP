@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basic Concept Of JavaScript</title>
-  </head>
 
-  <body>
-    <!-- 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Concept Of JavaScript</title>
+</head>
+
+<body>
+  <!-- 
+  
     Data Types & Variables
     Primitive Types:
     String, Number, Boolean, Undefined, Null, BigInt, Symbol
 
     Non-Primitive Types
     Object → includes Arrays, Functions, etc.
+    
     Variable Declaration
+
     var → Function-scoped
 
     let → Block-scoped, reassignable
@@ -31,12 +35,12 @@
             function greet() {
             return "Hello!";
             }
-
+      
             Function Expression:
             const greet = function() {
             return "Hello!";
             }
-
+  
             Arrow Function:
             const greet = () => "Hello!";
 
@@ -107,9 +111,9 @@
 
             7 Asynchronous JavaScript
             Evolution: Callbacks → Promises → Async/Await
-            Event Loop: Executes sync → microtask → macrotasks
-            Microtasks: Promises, MutationObserver ?
-            Macrotasks: setTimeout, setInterval
+            Event Loop: Executes sync → microtask → macrotask
+            Microtask: Promises
+            Macrotask: setTimeout
 
             8 DOM Manipulation
 
@@ -134,6 +138,9 @@
             } catch (error) {
             console.log(error.message); // Output: Something went wrong
             }
+
+=======================================================================================================
+
             * JavaScript Syntax Rules 
             1 Case Sensitivity (Camel case) 
             2 Comments (single line // multiline line /**/)
@@ -141,12 +148,18 @@
             4 WhiteSpace  proper Spacing
             5 Indentation (format Document)
             6 Naming Convention
+            
+=======================================================================================================
+            * Using Comments
+            // 
+            /**/
+
              -->
-  </body>
-  <script>
-    let x = 5;
-    console.log(`Hello, ${name}!`);
-    console.log(`Hello, ${name}!`);
-    
-  </script>
+</body>
+<script>
+  let x = 5;
+  console.log(`Hello, ${name}!`);
+  console.log(`Hello, ${name}!`);
+</script>
+
 </html>

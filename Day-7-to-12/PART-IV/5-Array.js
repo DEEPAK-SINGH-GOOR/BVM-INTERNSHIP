@@ -48,7 +48,7 @@
 // reduce() Method
 // const sumOfAll = bikes.reduce((currentprice , bike)=>{
 //     return currentprice + bike.price
-// },0) 
+// },0)
 // console.log(sumOfAll);
 
 /*
@@ -93,17 +93,18 @@
 // const item = ["A","B","C","D","E"];
 // const newItem = item.join(" - ");
 // console.log(newItem);
+
  */
 const students = [
-    { name: "a", age: 22, className: "java" },
-    { name: "aa", age: 22, className: "java" },
-    { name: "aaa", age: 22, className: "java" },
-    { name: "ab", age: 21, className: "Node Js" },
-    { name: "abb", age: 21, className: "Node Js" },
-    { name: "abbb", age: 21, className: "Node Js" },
-    { Name: "ab", age: 21, className: "React Js" },
-    { Name: "abb", age: 21, className: "React Js" },
-    { Name: "abbb", age: 21, className: "React Js" },
+  { name: "a", age: 22, className: "java" },
+  { name: "aa", age: 22, className: "java" },
+  { name: "aaa", age: 22, className: "java" },
+  { name: "ab", age: 21, className: "Node Js" },
+  { name: "abb", age: 21, className: "Node Js" },
+  { name: "abbb", age: 21, className: "Node Js" },
+  { Name: "ab", age: 21, className: "React Js" },
+  { Name: "abb", age: 21, className: "React Js" },
+  { Name: "abbb", age: 21, className: "React Js" },
 ];
 
 /*
@@ -113,7 +114,6 @@ Questions:-
   3. console array of classes. no matters how many calsses are exists in array. e.g ["java", "Node Js"]
   4. get all keys of student object and print in console. e.g. ["name", "age", "className"]
 */
-
 // 1) QUESTION
 // let NodeName = students.filter((node)=>{
 //     return node.className == "Node Js"
@@ -122,15 +122,13 @@ Questions:-
 // (ii)
 // console.log('NodeName',students.filter((node)=>node.className === "Node Js"));
 
-
 // 2) QUESTION
 // const aaaName = students.find((aaa)=>{
 //     return aaa.name === "aaa"
 // })
 // console.log(aaaName);
 // (ii)
-// console.log('aaaName',students.find((aaa)=>aaa.name ==="aaa")); 
-
+// console.log('aaaName',students.find((aaa)=>aaa.name ==="aaa"));
 
 // // 3) QUESTION
 // const allClass = [...new Set(students.map((Uniq) => {
@@ -140,8 +138,8 @@ Questions:-
 // (ii)
 // console.log('All Classes',[...new Set(students.map((all)=>all.className))]);
 
-// 4) QUESTUION
+// 4) QUESTION
 // const keyName = Object.keys(students[0])
 // console.log(keyName);
 // (ii)
-console.log("Student Keys" ,Object.keys(students[0]))
+// console.log("Student Keys" ,Object.keys(students[0]))
