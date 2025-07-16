@@ -203,5 +203,14 @@ let array1 = [1, 2, 3, 4, 5];
 let initialize = 0;
 const sum = array1.reduce((a, b) => a + b, initialize);
 console.log(sum);
+
+(32) split()
+=> the split method of string value takes divide this 
+into string into an order list of substring by searching for the pattern 
+puts these substring into an array & return the array
+
+const str = "The Quick brown fox jumps over the lazy dog.";
+const words = str.split(" ");
+console.log(words[3]);
 */
 
