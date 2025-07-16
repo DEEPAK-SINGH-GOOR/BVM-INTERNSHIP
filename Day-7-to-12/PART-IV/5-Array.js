@@ -1,4 +1,4 @@
-// const bikes = [
+// const bikes =[
 //   { name: "Hero Splendor Plus", price: 100 },
 //   { name: "Honda Shine", price: 80 },
 //   { name: "Bajaj Pulsar 150", price: 100 },
@@ -10,6 +10,7 @@
 //   { name: "Honda Unicorn", price: 98 },
 //   { name: "Bajaj Avenger 160", price: 111 }
 // ];
+
 // filter() Method
 // const filterPrice = bikes.filter((bike)=>{
 //     return bike.name

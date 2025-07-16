@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Function</title>
 </head>
+
 <body>
     <!-- 
     1) What Is Function ?
@@ -29,9 +31,66 @@
     (function(){
         return "Hello"
     })()
+
+    // 1. Using Functions
+function greet(name) {
+  console.log("Hello, " + name);
+}
+greet("Deepak");
+
+// 2. Introducing Objects
+const student = { name: "Deepak", age: 21 };
+console.log(student.age); // 21
+
+// 3. Using Objects to Simplify Scripting
+const calculator = {
+  multiply: function (a, b) {
+    return a * b;
+  }
+};
+console.log(calculator.multiply(3, 4)); // 12
+
+// 4. Extending Built-in Objects
+Array.prototype.first = function () {
+  return this[0];
+};
+console.log([10, 20, 30].first()); // 10
+
+// 5. Using the Math Object
+console.log(Math.PI); // 3.141592653589793
+
+// 6. Working with Math Functions
+console.log(Math.round(6.4)); // 6
+
+// 7. Using the with Keyword
+const person = { name: "Deepak" };
+with (person) {
+  console.log(name); // Deepak
+}
+// without with
+const { name, age, city } = user;
+console.log(name, age, city);
+
+
+// 8. Working with Dates
+const today = new Date();
+console.log(today.getFullYear()); // e.g. 2025
+
+
+    closure 
+    function outer(){
+        let count = 0;
+        function inner(){
+            count ++;
+            console.log(count)
+        }
+        return inner;
+    }
+    let counter = outer()
      -->
 </body>
 <script>
 
 </script>
+
 </html>

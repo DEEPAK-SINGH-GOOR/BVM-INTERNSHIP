@@ -1,3 +1,5 @@
+
+
 // push for Add End of Array
 // pop  for Remove End of Array
 // shift for Remove From Front
@@ -26,21 +28,27 @@
 // 1) QUESTION
 // worksDuration.push({name:"Study JavaScript",duration:"90"})
 // console.log(worksDuration);
+
 // 2) QUESTION
 // worksDuration.unshift({ name: "Sports", duration: "210" })
 // console.log(worksDuration);
+
 // Q3 QUESTION
 // console.log(worksDuration.length);
+
 // 4) QUESTION
 // worksDuration.pop();
 // console.log(worksDuration.length);
+
 // 5) QUESTION
 // for (let i = 0; i < worksDuration.length; i++) {
 //   console.log(worksDuration[i]);
 // }
+
 // 6) QUESTION
 // const ArrayOfString = worksDuration.map((work)=>` ${work.name} = ${work.duration}` )
 // console.log(ArrayOfString);
+
 // 7) QUESTION
 // console.log(worksDuration.sort((a,b)=>a.duration - b.duration));
 /*
