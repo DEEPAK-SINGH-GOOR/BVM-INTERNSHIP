@@ -137,28 +137,23 @@
     
 */
 
-//          
-// let text = "w57 tv 5v e59";
-// let store = text.split(" ");
+//
 
-// for (let i = 0; i <= text.length - 1; i++) {
-//   if (text[i] == 5 || text[i] == 7 || text[i] == 9) {
-//     // console.log(text[i]);
-//     console.log(typeof text[i]);
-//   } else {
-//     // console.log("3");
-//     console.log(typeof 3);
-//   }
+//  false, "", null,undefined,0
+//  3, true, "JHVH", [], {} , -1
+
+
+// for (let i = 0; i <= store.length-1; i++) {
+// //   let showType = Number(store[i]);
+//   console.log(store[i].split(""));
+//     // console.log(i);
+
+// //   for (let j = 0; j <= store[i].length; j++) {
+// //     console.log(j);
+
+// //   }
+// //   console.log(showType);
 // }
-
-// for (let i = 0; i <= text.length; i++) {
-//   //     let number = toString(text[i])
-//   //     let type = typeof(number);
-//   //   console.log(type);
-//   let showType = typeof Number(text[i]);
-//   console.log(showType);
-// }
-
 // let number = 1;
 // console.log(number);
 
@@ -195,6 +190,29 @@
 
 // console.log(typeof(stringStore));
 // console.log(typeof(NumberStore));
+
+// Task4 : Extract a substring from a given string and display it.
+
+// let text = "w57 t2v 5v e59";
+// let store = text.split(" ");
+// let onlyNumber = [];
+
+// for (let i = 0; i <= store.length - 1; i++) {
+//   let store2 = store[i].split("");
+  
+//   let temp = "";
+//   for (let j = 0; j <= store2.length - 1; j++) {
+//     let number = Number(store2[j]);
+
+//     if (number >= 0 && store2[j] !== "") {
+//       temp += store2[j];
+//     }
+//   }
+//   onlyNumber.push(temp);
+// }
+// console.log(onlyNumber);
+
+
 
 // Task5 : Create a numeric array and calculate the sum of all elements.
 // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
