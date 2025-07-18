@@ -1,3 +1,4 @@
+// Array
 copywithin() 
 findlast()
 reduceRight()
@@ -9,6 +10,7 @@ with()
 
 //object
 defineProperty()
+defineProperties()
 same()
 fromEntires()
 all get

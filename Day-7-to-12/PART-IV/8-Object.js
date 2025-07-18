@@ -25,6 +25,7 @@
 //     'duration': 240
 //   }
 // ];
+
 // 1) QUESTION
 // worksDuration.push({name:"Study JavaScript",duration:"90"})
 // console.log(worksDuration);
@@ -51,6 +52,7 @@
 
 // 7) QUESTION
 // console.log(worksDuration.sort((a,b)=>a.duration - b.duration));
+
 /*
   1. Add another element to the end of the worksDuration list.
   2. Add another element to the beginning of the worksDuration list.

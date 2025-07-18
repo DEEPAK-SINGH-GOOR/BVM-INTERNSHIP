@@ -7,6 +7,7 @@ const source = { c: 3, d: 4 };
 const third = { e: 5, f: 6 };
 const merge = Object.assign(target, source ,third);
 console.log(merge);
+// output { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 }
 
 (ii) create()
 =>
@@ -18,6 +19,7 @@ const person = {
 const news = Object.create(person);
 news.firstName = "steve"
 console.log(news);
+// output { firstName: 'steve' }
 
 (iv) entires()
 => the object.entires static method returns an array of given object 
@@ -30,6 +32,9 @@ const object1 = {
 for (let [key, value] of Object.entries(object1)) {
   console.log(key, value);
 }
+// output 
+a Some String
+b 1
 
 //   (v) freeze
 => freeze is use to not changes value after apply freeze
@@ -39,6 +44,8 @@ const obj={
 Object.freeze(obj);
 obj.number = 2
 console.log(obj);
+// output { number: 1 }
+
 
 (vi) fromEntries()
 => object.fromEntires static method transforms a list key-value paris into an object.
@@ -48,6 +55,8 @@ const entires = new Map([
 ])
 const obj = Object.fromEntries(entires)
 console.log(obj);
+// output 
+{ no: 1, name: 'john' }
 
 (vii) groupBy()
 => it's show separate both false and true
@@ -58,7 +67,7 @@ const inventory = [
 ];
 
 const result = Object.groupBy(inventory,({quantity})=>
-    quantity > 3
+    quantity > 2
 )
 console.log(result);
 
@@ -77,15 +86,18 @@ const object1 = {
 }
 //                        ObjectNAME , keyNAME
 console.log(Object.hasOwn(object1,"name"));
+// output true
 
 (ix)
 => it provide only keys from object
+
 const Objects ={
     a:'a',
     b:'b',
     c:'c'
 }
 console.log(Object.keys(Objects));
+// output [ 'a', 'b', 'c' ]
 
 //   (x) seal()
 => seal you can change value but can not delete
@@ -134,3 +146,11 @@ let Second = new Car('Tata')
 console.log(First);
 console.log(Second);
 */
+
+
+const Objects ={
+    a:'a',
+    b:'b',
+    c:'c'
+}
+console.log(Object.keys(Objects));
