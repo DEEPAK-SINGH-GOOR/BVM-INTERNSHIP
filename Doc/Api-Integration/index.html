@@ -24,3 +24,137 @@
 </script>
 
 </html>
+////////////
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Table</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>States</th>
+            </tr>
+        </thead>
+        <tbody id="data"></tbody>
+    </table>
+
+    <script>
+        async function getData() {
+            const res = await fetch("https://countriesnow.space/api/v0.1/countries/states");
+            const json = await res.json();
+            const arr = json.data;
+
+            const rows = arr.map(item => {
+                const states = item.states.map(s => s.name).join(", ");
+                return `<tr><td>${item.name}</td><td>${states}</td></tr>`;
+            });
+
+            document.getElementById("data").innerHTML = rows.join("");
+        }
+
+        getData();
+    </script>
+</body>
+</html>
+/////////
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Country Names</title>
+</head>
+<body>
+    <div id="data"></div>
+
+    <script>
+        async function getData() {
+            const url = "https://countriesnow.space/api/v0.1/countries/states";
+            const response = await fetch(url);
+            const json = await response.json();
+            const countries = json.data;
+
+            const output = countries.map(item => `<p>${item.name}</p>`).join("");
+            document.getElementById("data").innerHTML = output;
+        }
+
+        getData();
+    </script>
+</body>
+
+
+    ///////
+<button onclick="headClick()">H</button>
+<button onclick="tailClick()">T</button>
+
+<div id="flex"></div>
+
+<script>
+    let currentColumn = null;
+    let lastType = "";
+
+    function createColumn() {
+        let col = document.createElement("div");
+        document.getElementById("flex").append(col);
+        return col;
+    }
+
+    function headClick() {
+        if (lastType !== "H") {
+            currentColumn = createColumn();
+            lastType = "H";
+        }
+
+        let h = document.createElement("p");
+        h.innerText = "H";
+        currentColumn.appendChild(h);
+    }
+
+    function tailClick() {
+        if (lastType !== "T") {
+            currentColumn = createColumn();
+            lastType = "T";
+        }
+
+        let t = document.createElement("p");
+        t.innerText = "T";
+        currentColumn.appendChild(t);
+    }
+
+    ////
+    <button onclick="headClick()">H</button>
+<button onclick="tailClick()">T</button>
+
+<div id="flex"></div>
+
+<script>
+    let last = "";
+    let col;
+
+    function headClick() {
+        if (last !== "H") {
+            col = document.createElement("div");
+            document.getElementById("flex").append(col);
+            last = "H";
+        }
+        let h = document.createElement("p");
+        h.innerText = "H";
+        col.append(h);
+    }
+
+    function tailClick() {
+        if (last !== "T") {
+            col = document.createElement("div");
+            document.getElementById("flex").append(col);
+            last = "T";
+        }
+        let t = document.createElement("p");
+        t.innerText = "T";
+        col.append(t);
+    }
+</script>
+</script>
+    
+</html>
