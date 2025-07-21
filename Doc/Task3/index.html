@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Head / Tail </title>
+</head>
+
+<body>
+    <style>
+        #container {
+            display: flex;
+        }
+        .text{
+            padding-left: 5px;
+        }
+    </style>
+    <div id="container"></div>
+    <button onclick="headClick()">H</button>
+    <button onclick="tailClick()">T</button>
+
+    <div id="container">
+        <div id="store" class="text">
+            <b>H</b>
+        </div>
+
+        <div id="store2" class="text">
+            <b>T</b>
+        </div>
+    </div>
+
+</body>
+<!-- Changes -->
+<script>
+    function headClick() {
+        let store = document.getElementById("store")
+        let head = document.createElement("p")
+        head.innerHTML = 'H'
+        store.append(head)
+    }
+    function tailClick() {
+        let store2 = document.getElementById("store2")
+        let tail = document.createElement("p")
+        tail.innerHTML = 'T'
+        store2.append(tail)
+    }
+    /*
+Create two button (Head & Tail)
+If you click Head then create 1 column of H	
+If you click Tail then print T on another column
+Like:-   
+    H T H T
+    H T H T
+    H T H T
+*/
+</script>
+
+</html>

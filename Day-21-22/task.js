@@ -142,7 +142,6 @@
 //  false, "", null,undefined,0
 //  3, true, "JHVH", [], {} , -1
 
-
 // for (let i = 0; i <= store.length-1; i++) {
 // //   let showType = Number(store[i]);
 //   console.log(store[i].split(""));
@@ -193,34 +192,36 @@
 
 // Task4 : Extract a substring from a given string and display it.
 
-// let text = "w57 t2v 5v e59";
-// let store = text.split(" ");
-// let onlyNumber = [];
+let text = "w57 t2v 5v e59";
+let store = text.split(" ");
 
-// for (let i = 0; i <= store.length - 1; i++) {
-//   let store2 = store[i].split("");
+let onlyNumber = [];
+
+for (let i = 0; i <= store.length - 1; i++) {
+  let store2 = store[i].split("");
+  // console.log(store2);
   
-//   let temp = "";
-//   for (let j = 0; j <= store2.length - 1; j++) {
-//     let number = Number(store2[j]);
-
-//     if (number >= 0 && store2[j] !== "") {
-//       temp += store2[j];
-//     }
-//   }
-//   onlyNumber.push(temp);
-// }
+  let temp = "";
+  for (let j = 0; j <= store2.length - 1; j++) {
+    let number = Number(store2[j]);
+    // console.log(store2[j]);
+    
+    if (number >= 0 && store2[j] !== "") {
+      temp += store2[j];
+      // console.log(store2[j]);
+    }
+  }
+  onlyNumber.push(temp);
+}
 // console.log(onlyNumber);
-
-
 
 // Task5 : Create a numeric array and calculate the sum of all elements.
 // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // console.log(arr.reduce((a,b)=> a+b));
 
 // Task6 : Create a string array and sort it alphabetically.
-// let string = ['b','c','d','a']
-// console.log(string.sort());
+let string = ['b','c','d','a']
+console.log(string.sort());
 
 // Task7 : Create and sort a numeric array in ascending order.
 // let arr = [2,4,5,7,1,6];
