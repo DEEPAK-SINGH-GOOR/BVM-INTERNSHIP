@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Head/Tail</title>
- 
+  <title>Head Tail Task</title>
 </head>
 <body>
 
+  <button onclick="addValue('H')">H</button>
+  <button onclick="addValue('T')">T</button>
 
-  <button onclick="addEntry('H')">Head</button>
-  <button onclick="addEntry('T')">Tail</button>
-
-  <div id="container">
-    <div id="headColumn" class="column"><strong>H</strong></div>
-    <div id="tailColumn" class="column"><strong>T</strong></div>
-  </div>
+  <div id="container"></div>
 
   <script>
-    function addEntry(type) {
-      const div = document.createElement('div');
-      div.className = 'entry';
-      div.textContent = type;
+    let last = "";
+    let currentRow = null;
 
-      if (type === 'H') {
-        document.getElementById('headColumn').appendChild(div);
-      } else if (type === 'T') {
-        document.getElementById('tailColumn').appendChild(div);
+    function addValue(val) {
+      if (val !== last) {
+        // Create new row if different
+        currentRow = document.createElement("div");
+        currentRow.style.display = "flex";
+        currentRow.style.margin = "5px";
+        document.getElementById("container").appendChild(currentRow);
       }
+
+      let box = document.createElement("div");
+      box.innerText = val;
+      box.style.border = "1px solid black";
+      box.style.padding = "10px";
+      box.style.marginRight = "5px";
+      currentRow.appendChild(box);
+
+      last = val;
     }
   </script>
 
